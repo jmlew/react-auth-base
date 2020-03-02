@@ -1,0 +1,25 @@
+@import '../mixins/text';
+
+// Text layout and alignment
+
+.text-right {
+  text-align: right;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-left {
+  text-align: left;
+}
+
+// Text wrapping and truncation.
+
+.no-wrap {
+  @include no-wrap();
+}
+
+.text-ellipsis {
+  @include text-ellipsis();
+}
