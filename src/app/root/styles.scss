@@ -1,0 +1,11 @@
+// Imported references.
+@import '../styles/variables/typography';
+
+// Imported styles.
+@import '../styles/vendor/mui-overrides';
+@import '../styles/partials/resets';
+@import '../styles/partials/text';
+
+body {
+  font-family: $font-family-body;
+}
