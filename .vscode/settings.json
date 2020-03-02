@@ -1,7 +1,4 @@
 {
   "editor.formatOnPaste": false,
-  "editor.formatOnSave": true,
-  "editor.codeActionsOnSave": {
-    "source.fixAll.tslint": true
-  }
+  "editor.formatOnSave": true
 }

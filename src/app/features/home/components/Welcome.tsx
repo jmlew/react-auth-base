@@ -2,9 +2,12 @@ import React, { Fragment } from 'react';
 import { Typography, Divider, makeStyles, Theme } from '@material-ui/core';
 
 const useStyles = makeStyles((theme: Theme) => ({
-  divider: {
+  title: {
     marginBottom: theme.spacing(4),
-    marginTop: theme.spacing(4),
+  },
+  divider: {
+    marginTop: theme.spacing(6),
+    marginBottom: theme.spacing(6),
   },
 }));
 
@@ -12,7 +15,13 @@ function Welcome() {
   const classes = useStyles();
   return (
     <Fragment>
-      <Typography align="center" variant="h5" gutterBottom>
+      <Typography
+        className={classes.title}
+        align="center"
+        variant="h2"
+        color="primary"
+        gutterBottom={true}
+      >
         Welcome to the POC
       </Typography>
       <Divider className={classes.divider} />
