@@ -1,15 +1,17 @@
 import React, { Fragment } from 'react';
 import { Typography, Divider, makeStyles, Theme } from '@material-ui/core';
 
-const useStyles = makeStyles((theme: Theme) => ({
-  title: {
-    marginBottom: theme.spacing(4),
-  },
-  divider: {
-    marginTop: theme.spacing(6),
-    marginBottom: theme.spacing(6),
-  },
-}));
+import { uiThemeGeneral } from '../../../styles/theme/ui-theme';
+
+const useStyles = makeStyles((theme: Theme) => {
+  const { divider } = uiThemeGeneral(theme);
+  return {
+    divider,
+    title: {
+      marginBottom: theme.spacing(4),
+    },
+  };
+});
 
 function Welcome() {
   const classes = useStyles();

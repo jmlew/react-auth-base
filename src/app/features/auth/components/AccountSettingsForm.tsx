@@ -1,11 +1,42 @@
-import React, { Fragment } from 'react';
-import { makeStyles, Theme } from '@material-ui/core';
+import React from 'react';
+import { makeStyles, Theme, Typography, Divider, Paper } from '@material-ui/core';
 
-const useStyles = makeStyles((theme: Theme) => ({ root: {} }));
+import { uiThemeGeneral, uiThemeContainers } from '../../../styles/theme/ui-theme';
+
+const useStyles = makeStyles((theme: Theme) => {
+  const { contentPaper } = uiThemeContainers(theme);
+  const { divider } = uiThemeGeneral(theme);
+  return {
+    contentPaper,
+    divider,
+    title: {
+      marginBottom: theme.spacing(4),
+    },
+  };
+});
 
 interface AccountSettingsFormProps {}
 
 export default function AccountSettingsForm({}: AccountSettingsFormProps) {
   const classes = useStyles();
-  return <Fragment>AccountSettingsForm Component</Fragment>;
+  return (
+    <Paper elevation={2} className={classes.contentPaper}>
+      <Typography
+        className={classes.title}
+        align="center"
+        variant="h4"
+        color="primary"
+        gutterBottom={true}
+      >
+        Account Settings
+      </Typography>
+      <Divider className={classes.divider} />
+      <Typography align="center">
+        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Veritatis pariatur,
+        libero culpa, dignissimos dolorem tenetur fugiat at itaque blanditiis fugit maxime
+        voluptates inventore exercitationem. Voluptatum, sint. Quidem iusto amet
+        perspiciatis!
+      </Typography>
+    </Paper>
+  );
 }

@@ -2,14 +2,10 @@ import React from 'react';
 import { makeStyles, Theme, Grid, TextField, Button } from '@material-ui/core';
 import { Link } from 'react-router-dom';
 
+import { uiThemeForm } from '../../../styles/theme/ui-theme';
+
 const useStyles = makeStyles((theme: Theme) => ({
-  form: {
-    width: '100%',
-    marginTop: theme.spacing(1),
-  },
-  submit: {
-    margin: theme.spacing(3, 0, 2),
-  },
+  ...uiThemeForm(theme),
 }));
 
 interface RegisterFormProps {
@@ -79,7 +75,7 @@ export default function RegisterForm({ signinPath, onSubmit }: RegisterFormProps
         fullWidth={true}
         variant="contained"
         color="primary"
-        className={classes.submit}
+        className={classes.btnSubmit}
       >
         Sign Up
       </Button>

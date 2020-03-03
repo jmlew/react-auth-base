@@ -10,17 +10,10 @@ import {
 } from '@material-ui/core';
 import { Link } from 'react-router-dom';
 
+import { uiThemeForm } from '../../../styles/theme/ui-theme';
+
 const useStyles = makeStyles((theme: Theme) => ({
-  form: {
-    width: '100%',
-    marginTop: theme.spacing(1),
-  },
-  submit: {
-    margin: theme.spacing(3, 0, 2),
-  },
-  input: {
-    marginTop: theme.spacing(2),
-  },
+  ...uiThemeForm(theme),
 }));
 
 interface SigninFormProps {
@@ -75,7 +68,7 @@ export default function SigninForm({
         fullWidth={true}
         variant="contained"
         color="primary"
-        className={classes.submit}
+        className={classes.btnSubmit}
       >
         Sign In
       </Button>

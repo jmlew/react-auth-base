@@ -1,7 +1,11 @@
 import React, { Fragment } from 'react';
 import { makeStyles, Theme } from '@material-ui/core';
 
-const useStyles = makeStyles((theme: Theme) => ({ root: {} }));
+import { uiThemeGeneral } from '../../../styles/theme/ui-theme';
+
+const useStyles = makeStyles((theme: Theme) => ({
+  ...uiThemeGeneral(theme),
+}));
 
 interface SignoutConfirmProps {}
 

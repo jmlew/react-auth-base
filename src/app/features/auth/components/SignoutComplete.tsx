@@ -1,19 +1,30 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import { makeStyles, Theme, Typography, Divider, Button, Box } from '@material-ui/core';
 import { Link } from 'react-router-dom';
 
-const useStyles = makeStyles((theme: Theme) => ({
-  divider: {
-    marginBottom: theme.spacing(6),
-    marginTop: theme.spacing(6),
-  },
-  button: {
-    marginTop: theme.spacing(6),
-  },
-  link: {
-    textDecoration: 'none',
-  },
-}));
+import {
+  uiThemeGeneral,
+  uiThemeContainers,
+  uiThemeButtons,
+} from '../../../styles/theme/ui-theme';
+
+const useStyles = makeStyles((theme: Theme) => {
+  const { btnWhiteRounded } = uiThemeButtons(theme);
+  const { contentGreyRound } = uiThemeContainers(theme);
+  const { divider, link } = uiThemeGeneral(theme);
+  return {
+    contentGreyRound,
+    divider,
+    link,
+    btnSignin: {
+      ...btnWhiteRounded,
+      marginTop: 30,
+    },
+    title: {
+      color: theme.palette.common.white,
+    },
+  };
+});
 
 interface SignoutCompleteProps {
   signinPath: string;
@@ -22,8 +33,13 @@ interface SignoutCompleteProps {
 export default function SignoutComplete({ signinPath }: SignoutCompleteProps) {
   const classes = useStyles();
   return (
-    <Fragment>
-      <Typography align="center" variant="h4" color="primary" gutterBottom={true}>
+    <div className={classes.contentGreyRound}>
+      <Typography
+        className={classes.title}
+        align="center"
+        variant="h4"
+        gutterBottom={true}
+      >
         You are logged out
       </Typography>
       <Divider className={classes.divider} />
@@ -35,11 +51,11 @@ export default function SignoutComplete({ signinPath }: SignoutCompleteProps) {
       </Typography>
       <Box display="flex" justifyContent="center">
         <Link to={signinPath} className={classes.link}>
-          <Button variant="contained" color="primary" className={classes.button}>
+          <Button variant="contained" className={classes.btnSignin}>
             Sign in again
           </Button>
         </Link>
       </Box>
-    </Fragment>
+    </div>
   );
 }

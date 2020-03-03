@@ -8,7 +8,7 @@ import AppRoutes from './app.routes';
 const useStyles = makeStyles((theme: Theme) => ({
   content: {
     paddingTop: 40,
-    paddingBottom: 20,
+    paddingBottom: 40,
   },
 }));
 

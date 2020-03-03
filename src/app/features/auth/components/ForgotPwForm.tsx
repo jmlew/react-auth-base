@@ -1,17 +1,10 @@
 import React from 'react';
 import { makeStyles, Theme, TextField, Button } from '@material-ui/core';
 
+import { uiThemeForm } from '../../../styles/theme/ui-theme';
+
 const useStyles = makeStyles((theme: Theme) => ({
-  form: {
-    width: '100%',
-    marginTop: theme.spacing(1),
-  },
-  submit: {
-    margin: theme.spacing(3, 0, 2),
-  },
-  input: {
-    marginTop: theme.spacing(2),
-  },
+  ...uiThemeForm(theme),
 }));
 
 interface ForgotPwFormProps {
@@ -44,7 +37,7 @@ export default function ForgotPwForm({ onSubmit }: ForgotPwFormProps) {
         fullWidth={true}
         variant="contained"
         color="primary"
-        className={classes.submit}
+        className={classes.btnSubmit}
       >
         Reset Password
       </Button>

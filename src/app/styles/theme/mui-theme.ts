@@ -2,6 +2,11 @@ import red from '@material-ui/core/colors/red';
 
 import { createMuiTheme, Theme } from '@material-ui/core/styles';
 import { themeColours } from './colors';
+import { Palette } from '@material-ui/core/styles/createPalette';
+
+/**
+ * Material UI (@material-ui) theme settings.
+ */
 
 const muiTheme: Theme = createMuiTheme({
   spacing: (value) => `${0.25 * value}rem`, // Match ui-variables/_layout.scss.
@@ -18,11 +23,16 @@ const muiTheme: Theme = createMuiTheme({
     },
     error: red,
   },
-  props: {
-    /* MuiTypography: {
-      // Add overrides.
-    }, */
+  overrides: {
+    MuiButton: {
+      root: {},
+      label: {
+        textTransform: 'none',
+      },
+    },
   },
+  typography: (palette: Palette) => ({}),
+  props: {},
 });
 
 export { muiTheme };

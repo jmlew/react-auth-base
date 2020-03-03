@@ -1,14 +1,21 @@
 import React from 'react';
-import { makeStyles, Avatar, Typography, Icon, Container } from '@material-ui/core';
+import {
+  makeStyles,
+  Avatar,
+  Typography,
+  Icon,
+  Container,
+  Theme,
+} from '@material-ui/core';
 import { RouteComponentProps } from 'react-router-dom';
 
 import SigninForm from '../components/SigninForm';
 import { IconMat } from '../../../shared/enums/icons.enum';
 import { authRouteConfig } from '../constants/auth-route-config.constant';
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles((theme: Theme) => ({
   root: {
-    marginTop: theme.spacing(8),
+    marginTop: theme.spacing(4),
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',

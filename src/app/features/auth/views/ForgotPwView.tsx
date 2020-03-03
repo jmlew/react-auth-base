@@ -1,25 +1,34 @@
 import React from 'react';
 import { RouteComponentProps } from 'react-router-dom';
-import { makeStyles, Container, Avatar, Icon, Typography } from '@material-ui/core';
+import {
+  makeStyles,
+  Container,
+  Avatar,
+  Icon,
+  Typography,
+  Theme,
+} from '@material-ui/core';
 
 import ForgotPwForm from '../components/ForgotPwForm';
 import { IconMat } from '../../../shared/enums/icons.enum';
 
-const useStyles = makeStyles((theme) => ({
-  root: {
-    marginTop: theme.spacing(8),
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center',
-  },
-  avatar: {
-    margin: theme.spacing(1),
-    backgroundColor: theme.palette.secondary.main,
-  },
-  title: {
-    marginBottom: theme.spacing(5),
-  },
-}));
+const useStyles = makeStyles((theme: Theme) => {
+  return {
+    root: {
+      marginTop: theme.spacing(4),
+      display: 'flex',
+      flexDirection: 'column',
+      alignItems: 'center',
+    },
+    avatar: {
+      margin: theme.spacing(1),
+      backgroundColor: theme.palette.secondary.main,
+    },
+    title: {
+      marginBottom: theme.spacing(5),
+    },
+  };
+});
 
 interface ForgotPwViewProps extends RouteComponentProps {}
 
