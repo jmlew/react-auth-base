@@ -1,6 +1,6 @@
 {
-  "short_name": "AWS Auth",
-  "name": "POC showcasing AWS user auth using Cognito",
+  "short_name": "React Auth",
+  "name": "POC showcasing user auth.",
   "icons": [
     {
       "src": "favicon.ico",
