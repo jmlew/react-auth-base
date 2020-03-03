@@ -1,8 +1,13 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import Welcome from '../components/Welcome';
+import { RouteComponentProps } from 'react-router-dom';
 
-function HomeView() {
-  return <Welcome />;
+interface HomeViewProps extends RouteComponentProps {}
+
+export default function HomeView({}: HomeViewProps) {
+  return (
+    <Fragment>
+      <Welcome />
+    </Fragment>
+  );
 }
-
-export default HomeView;

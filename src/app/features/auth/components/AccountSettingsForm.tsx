@@ -1,11 +1,13 @@
-import React, { Fragment } from 'react';
-import { Typography, Divider, makeStyles, Theme } from '@material-ui/core';
+import React from 'react';
+import { makeStyles, Theme, Typography, Divider, Paper } from '@material-ui/core';
 
-import { uiThemeGeneral } from '../../../styles/theme/ui-theme';
+import { uiThemeGeneral, uiThemeContainers } from '../../../styles/theme/ui-theme';
 
 const useStyles = makeStyles((theme: Theme) => {
+  const { contentPaper } = uiThemeContainers(theme);
   const { divider } = uiThemeGeneral(theme);
   return {
+    contentPaper,
     divider,
     title: {
       marginBottom: theme.spacing(4),
@@ -13,18 +15,20 @@ const useStyles = makeStyles((theme: Theme) => {
   };
 });
 
-export default function Welcome() {
+interface AccountSettingsFormProps {}
+
+export default function AccountSettingsForm({}: AccountSettingsFormProps) {
   const classes = useStyles();
   return (
-    <Fragment>
+    <Paper elevation={2} className={classes.contentPaper}>
       <Typography
         className={classes.title}
         align="center"
-        variant="h2"
+        variant="h4"
         color="primary"
         gutterBottom={true}
       >
-        Welcome to the POC
+        Account Settings
       </Typography>
       <Divider className={classes.divider} />
       <Typography align="center">
@@ -33,6 +37,6 @@ export default function Welcome() {
         voluptates inventore exercitationem. Voluptatum, sint. Quidem iusto amet
         perspiciatis!
       </Typography>
-    </Fragment>
+    </Paper>
   );
 }
