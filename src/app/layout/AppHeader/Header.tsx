@@ -16,9 +16,6 @@ import AuthMenu from './AuthMenu';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
-    root: {
-      flexGrow: 1,
-    },
     leftButtons: {
       marginLeft: theme.spacing(0),
       marginRight: theme.spacing(2),
@@ -39,20 +36,18 @@ interface AppHeaderProps {
 export default function AppHeader({ isAuthenticated }: AppHeaderProps) {
   const classes = useStyles();
   return (
-    <div className={classes.root}>
-      <AppBar position="static">
-        <Toolbar>
-          <IconButton className={classes.leftButtons} color="inherit">
-            <Icon>{IconMat.Menu}</Icon>
-          </IconButton>
-          <div className={classes.title}>
-            <Typography variant="h6">Authenticator App</Typography>
-          </div>
-          <div className={classes.rightButtons}>
-            {isAuthenticated ? <ProfieMenu /> : <AuthMenu />}
-          </div>
-        </Toolbar>
-      </AppBar>
-    </div>
+    <AppBar position="static">
+      <Toolbar>
+        <IconButton className={classes.leftButtons} color="inherit">
+          <Icon>{IconMat.Menu}</Icon>
+        </IconButton>
+        <div className={classes.title}>
+          <Typography variant="h6">Authenticator App</Typography>
+        </div>
+        <div className={classes.rightButtons}>
+          {isAuthenticated ? <ProfieMenu /> : <AuthMenu />}
+        </div>
+      </Toolbar>
+    </AppBar>
   );
 }

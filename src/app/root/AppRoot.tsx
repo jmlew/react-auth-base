@@ -9,9 +9,8 @@ import AppShell from './AppShell';
 function AppRoot() {
   return (
     <MuiThemeProvider theme={muiTheme}>
-      <CssBaseline>
-        <AppShell />
-      </CssBaseline>
+      <CssBaseline />
+      <AppShell />
     </MuiThemeProvider>
   );
 }

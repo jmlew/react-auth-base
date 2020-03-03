@@ -23,6 +23,9 @@ const useStyles = makeStyles((theme: Theme) => {
     title: {
       color: theme.palette.common.white,
     },
+    body: {
+      color: theme.palette.common.white,
+    },
   };
 });
 
@@ -43,7 +46,7 @@ export default function SignoutComplete({ signinPath }: SignoutCompleteProps) {
         You are logged out
       </Typography>
       <Divider className={classes.divider} />
-      <Typography align="center">
+      <Typography align="center" className={classes.body}>
         Lorem ipsum dolor sit, amet consectetur adipisicing elit. Veritatis pariatur,
         libero culpa, dignissimos dolorem tenetur fugiat at itaque blanditiis fugit maxime
         voluptates inventore exercitationem. Voluptatum, sint. Quidem iusto amet
