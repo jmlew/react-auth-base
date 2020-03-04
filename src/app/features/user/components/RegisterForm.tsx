@@ -13,7 +13,7 @@ interface RegisterFormProps {
   onSubmit: () => void;
 }
 
-export default function RegisterForm({ signinPath, onSubmit }: RegisterFormProps) {
+export function RegisterForm({ signinPath, onSubmit }: RegisterFormProps) {
   const classes = useStyles();
 
   function handleSubmit(event: React.FormEvent<HTMLFormElement>) {

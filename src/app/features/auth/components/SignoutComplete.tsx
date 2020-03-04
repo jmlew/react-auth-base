@@ -33,7 +33,7 @@ interface SignoutCompleteProps {
   signinPath: string;
 }
 
-export default function SignoutComplete({ signinPath }: SignoutCompleteProps) {
+export function SignoutComplete({ signinPath }: SignoutCompleteProps) {
   const classes = useStyles();
   return (
     <div className={classes.contentGreyRound}>

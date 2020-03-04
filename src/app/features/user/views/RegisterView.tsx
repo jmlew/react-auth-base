@@ -7,11 +7,11 @@ import {
   Container,
   Theme,
 } from '@material-ui/core';
-
-import RegisterForm from '../components/RegisterForm';
-import { IconMat } from '../../../shared/enums/icons.enum';
 import { RouteComponentProps } from 'react-router-dom';
+
+import { IconMat } from '../../../shared/enums/icons.enum';
 import { authRouteConfig } from '../../../shared/constants';
+import { RegisterForm } from '../components';
 
 const useStyles = makeStyles((theme: Theme) => ({
   root: {
@@ -31,7 +31,7 @@ const useStyles = makeStyles((theme: Theme) => ({
 
 interface RegisterViewProps extends RouteComponentProps {}
 
-export default function RegisterView({}: RegisterViewProps) {
+export function RegisterView({}: RegisterViewProps) {
   const classes = useStyles();
 
   function handleFormSubmit() {

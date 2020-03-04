@@ -17,7 +17,7 @@ const useStyles = makeStyles((theme: Theme) => {
 
 interface UserSettingsFormProps {}
 
-export default function UserSettingsForm({}: UserSettingsFormProps) {
+export function UserSettingsForm({}: UserSettingsFormProps) {
   const classes = useStyles();
   return (
     <Paper elevation={2} className={classes.contentPaper}>

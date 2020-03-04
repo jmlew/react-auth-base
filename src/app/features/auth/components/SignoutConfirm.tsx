@@ -9,7 +9,7 @@ const useStyles = makeStyles((theme: Theme) => ({
 
 interface SignoutConfirmProps {}
 
-export default function SignoutConfirm({}: SignoutConfirmProps) {
+export function SignoutConfirm({}: SignoutConfirmProps) {
   const classes = useStyles();
   return <Fragment>SignoutConfirm Component</Fragment>;
 }

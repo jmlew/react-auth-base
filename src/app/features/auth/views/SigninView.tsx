@@ -9,7 +9,7 @@ import {
 } from '@material-ui/core';
 import { RouteComponentProps } from 'react-router-dom';
 
-import SigninForm from '../components/SigninForm';
+import { SigninForm } from '../components';
 import { IconMat } from '../../../shared/enums/icons.enum';
 import { userRouteConfig } from '../../../shared/constants';
 
@@ -31,7 +31,7 @@ const useStyles = makeStyles((theme: Theme) => ({
 
 interface SigninViewProps extends RouteComponentProps {}
 
-export default function SigninView({}: SigninViewProps) {
+export function SigninView({}: SigninViewProps) {
   const classes = useStyles();
 
   function handleFormSubmit() {

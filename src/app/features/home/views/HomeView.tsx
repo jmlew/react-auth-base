@@ -1,6 +1,7 @@
 import React, { Fragment } from 'react';
-import Welcome from '../components/Welcome';
 import { RouteComponentProps } from 'react-router-dom';
+
+import { Welcome } from '../components/Welcome';
 
 interface HomeViewProps extends RouteComponentProps {}
 

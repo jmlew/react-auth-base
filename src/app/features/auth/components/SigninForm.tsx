@@ -22,11 +22,7 @@ interface SigninFormProps {
   onSubmit: () => void;
 }
 
-export default function SigninForm({
-  registerPath,
-  forgotPwPath,
-  onSubmit,
-}: SigninFormProps) {
+export function SigninForm({ registerPath, forgotPwPath, onSubmit }: SigninFormProps) {
   const classes = useStyles();
 
   function handleSubmit(event: React.FormEvent<HTMLFormElement>) {

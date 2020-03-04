@@ -13,7 +13,7 @@ const useStyles = makeStyles((theme: Theme) => {
   };
 });
 
-export default function Welcome() {
+export function Welcome() {
   const classes = useStyles();
   return (
     <Fragment>

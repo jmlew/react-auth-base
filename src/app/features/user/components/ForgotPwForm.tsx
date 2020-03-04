@@ -11,7 +11,7 @@ interface ForgotPwFormProps {
   onSubmit: () => void;
 }
 
-export default function ForgotPwForm({ onSubmit }: ForgotPwFormProps) {
+export function ForgotPwForm({ onSubmit }: ForgotPwFormProps) {
   const classes = useStyles();
 
   function handleSubmit(event: React.FormEvent<HTMLFormElement>) {

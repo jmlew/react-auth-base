@@ -9,8 +9,8 @@ import {
   Theme,
 } from '@material-ui/core';
 
-import ForgotPwForm from '../components/ForgotPwForm';
 import { IconMat } from '../../../shared/enums/icons.enum';
+import { ForgotPwForm } from '../components';
 
 const useStyles = makeStyles((theme: Theme) => {
   return {
@@ -32,7 +32,7 @@ const useStyles = makeStyles((theme: Theme) => {
 
 interface ForgotPwViewProps extends RouteComponentProps {}
 
-export default function ForgotPwView({}: ForgotPwViewProps) {
+export function ForgotPwView({}: ForgotPwViewProps) {
   const classes = useStyles();
 
   function handleSubmit() {
