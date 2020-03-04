@@ -11,7 +11,7 @@ import { RouteComponentProps } from 'react-router-dom';
 
 import SigninForm from '../components/SigninForm';
 import { IconMat } from '../../../shared/enums/icons.enum';
-import { authRouteConfig } from '../constants/auth-route-config.constant';
+import { userRouteConfig } from '../../../shared/constants';
 
 const useStyles = makeStyles((theme: Theme) => ({
   root: {
@@ -38,6 +38,9 @@ export default function SigninView({}: SigninViewProps) {
     console.log('Sign in form submitted');
   }
 
+  const forgotPwPath = `${userRouteConfig.forgotPw.basePath}${userRouteConfig.forgotPw.path}`;
+  const registerPath = `${userRouteConfig.register.basePath}${userRouteConfig.register.path}`;
+
   return (
     <Container component="main" maxWidth="xs" className={classes.root}>
       <Avatar className={classes.avatar}>
@@ -53,8 +56,8 @@ export default function SigninView({}: SigninViewProps) {
       </Typography>
       <SigninForm
         onSubmit={handleFormSubmit}
-        forgotPwPath={`${authRouteConfig.forgotPw.basePath}${authRouteConfig.forgotPw.path}`}
-        registerPath={`${authRouteConfig.register.basePath}${authRouteConfig.register.path}`}
+        forgotPwPath={forgotPwPath}
+        registerPath={registerPath}
       />
     </Container>
   );

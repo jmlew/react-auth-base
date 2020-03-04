@@ -11,7 +11,7 @@ import {
 import RegisterForm from '../components/RegisterForm';
 import { IconMat } from '../../../shared/enums/icons.enum';
 import { RouteComponentProps } from 'react-router-dom';
-import { authRouteConfig } from '../constants/auth-route-config.constant';
+import { authRouteConfig } from '../../../shared/constants';
 
 const useStyles = makeStyles((theme: Theme) => ({
   root: {

@@ -3,7 +3,7 @@ import { RouteComponentProps } from 'react-router-dom';
 
 // import SignoutConfirm from '../components/SignoutConfirm';
 import SignoutComplete from '../components/SignoutComplete';
-import { authRouteConfig } from '../constants/auth-route-config.constant';
+import { authRouteConfig } from '../../../shared/constants';
 
 interface SignoutViewProps extends RouteComponentProps {}
 

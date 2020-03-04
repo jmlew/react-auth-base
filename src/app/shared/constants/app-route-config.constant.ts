@@ -1,4 +1,4 @@
-import { RouteConfig } from '../shared/models/routes.model';
+import { RouteConfig } from '../models/routes.model';
 
 const basePath = '/';
 
@@ -9,6 +9,10 @@ const basePath = '/';
 export const appRouteConfig: RouteConfig = {
   auth: {
     path: '/auth',
+    basePath,
+  },
+  user: {
+    path: '/user',
     basePath,
   },
 };

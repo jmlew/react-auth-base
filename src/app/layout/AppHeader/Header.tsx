@@ -13,6 +13,7 @@ import { IconMat } from '../../shared/enums/icons.enum';
 
 import ProfieMenu from './PofileMenu';
 import AuthMenu from './AuthMenu';
+import { authRouteConfig, userRouteConfig } from '../../shared/constants';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -35,6 +36,11 @@ interface AppHeaderProps {
 
 export default function AppHeader({ isAuthenticated }: AppHeaderProps) {
   const classes = useStyles();
+
+  const signinPath = `${authRouteConfig.signin.basePath}${authRouteConfig.signin.path}`;
+  const accountPath = `${userRouteConfig.account.basePath}${userRouteConfig.account.path}`;
+  const registerPath = `${userRouteConfig.register.basePath}${userRouteConfig.register.path}`;
+
   return (
     <AppBar position="static">
       <Toolbar>
@@ -45,7 +51,11 @@ export default function AppHeader({ isAuthenticated }: AppHeaderProps) {
           <Typography variant="h6">Authenticator App</Typography>
         </div>
         <div className={classes.rightButtons}>
-          {isAuthenticated ? <ProfieMenu /> : <AuthMenu />}
+          {isAuthenticated ? (
+            <ProfieMenu signinPath={signinPath} accountPath={accountPath} />
+          ) : (
+            <AuthMenu signinPath={signinPath} registerPath={registerPath} />
+          )}
         </div>
       </Toolbar>
     </AppBar>

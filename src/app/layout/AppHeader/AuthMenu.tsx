@@ -11,15 +11,20 @@ const useStyles = makeStyles((theme: Theme) =>
   })
 );
 
-export default function AuthMenu() {
+interface AuthMenuProps {
+  signinPath: string;
+  registerPath: string;
+}
+
+export default function AuthMenu({ signinPath, registerPath }: AuthMenuProps) {
   const classes = useStyles();
 
   return (
     <Fragment>
-      <Link to={'/auth/signin'} className={classes.link}>
+      <Link to={signinPath} className={classes.link}>
         <Button color="inherit">Signin</Button>
       </Link>
-      <Link to={'/auth/register'} className={classes.link}>
+      <Link to={registerPath} className={classes.link}>
         <Button color="inherit">Register</Button>
       </Link>
     </Fragment>

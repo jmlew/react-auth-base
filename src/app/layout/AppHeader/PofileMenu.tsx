@@ -10,6 +10,7 @@ import {
 } from '@material-ui/core';
 import { IconMat } from '../../shared/enums/icons.enum';
 import { Link } from 'react-router-dom';
+import { authRouteConfig, userRouteConfig } from '../../shared/constants';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -20,7 +21,12 @@ const useStyles = makeStyles((theme: Theme) =>
   })
 );
 
-export default function PofileMenu() {
+interface PofileMenuProps {
+  signinPath: string;
+  accountPath: string;
+}
+
+export default function PofileMenu({ signinPath, accountPath }: PofileMenuProps) {
   const classes = useStyles();
 
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
@@ -46,12 +52,12 @@ export default function PofileMenu() {
         onClose={handleClose}
       >
         <MenuItem onClick={handleClose}>
-          <Link to={'/auth/account'} className={classes.link}>
+          <Link to={accountPath} className={classes.link}>
             Account
           </Link>
         </MenuItem>
         <MenuItem onClick={handleClose}>
-          <Link to={'/auth/signout'} className={classes.link}>
+          <Link to={signinPath} className={classes.link}>
             Signout
           </Link>
         </MenuItem>

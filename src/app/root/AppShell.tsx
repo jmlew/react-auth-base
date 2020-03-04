@@ -24,7 +24,7 @@ const useStyles = makeStyles((theme: Theme) => ({
 
 export default function AppShell() {
   const classes = useStyles();
-  const isAuthenticated = true;
+  const isAuthenticated = false;
   return (
     <Router>
       <div className={classes.root}>
