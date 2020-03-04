@@ -1,6 +1,6 @@
-# React Auth Boilerplate
+# React AWS Auth Boilerplate
 
-A Boilerplate for React apps providing authorisation functionality, styles with Material UI.
+A Boilerplate for React apps providing authorisation functionality through AWS Cognito and styled with Material UI.
 
 ## Architecture
 

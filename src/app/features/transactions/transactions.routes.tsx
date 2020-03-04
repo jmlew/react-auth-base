@@ -1,14 +1,17 @@
-import React from 'react';
-import { Route, Switch, RouteComponentProps } from 'react-router-dom';
+import React, { Suspense } from 'react';
+import { Switch, RouteComponentProps } from 'react-router-dom';
 
 import { TransactionsView } from './views';
+import { LoadingCircular, ErrorBoundaryRoute } from '../../shared/components';
 
 export default function TransactionRoutes({ match }: RouteComponentProps) {
   const { url } = match;
   return (
-    <Switch>
-      {/* TODO: Create feature sub-routes */}
-      <Route exact={true} path={url} component={TransactionsView} />
-    </Switch>
+    <Suspense fallback={<LoadingCircular />}>
+      <Switch>
+        {/* TODO: Create feature sub-routes */}
+        <ErrorBoundaryRoute exact={true} path={url} component={TransactionsView} />
+      </Switch>
+    </Suspense>
   );
 }

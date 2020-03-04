@@ -2,9 +2,9 @@ import React, { useState, MouseEvent } from 'react';
 import { BrowserRouter as Router } from 'react-router-dom';
 import { Container, makeStyles, Theme } from '@material-ui/core';
 
-import AppHeader from '../layout/AppHeader/AppHeader';
-import AppFooter from '../layout/AppFooter/AppFooter';
-import AppSidenav from '../layout/AppSidenav/AppSidenav';
+import AppHeader from '../layout/header/AppHeader';
+import AppFooter from '../layout/footer/AppFooter';
+import AppSidenav from '../layout/sidenav/AppSidenav';
 import AppRoutes from './app.routes';
 
 const useStyles = makeStyles((theme: Theme) => ({
