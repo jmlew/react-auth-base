@@ -1,7 +1,7 @@
 import React, { lazy, Suspense } from 'react';
-import { Route, Switch } from 'react-router-dom';
+import { Switch } from 'react-router-dom';
 
-import { Loading } from '../shared/components';
+import { LoadingCircular, ErrorBoundaryRoute } from '../shared/components';
 import { appRouteConfig } from '../shared/constants';
 
 // Non lazy-loaded features.
@@ -18,14 +18,20 @@ const CardsFeature = lazy(() => import('../features/cards/cards.routes'));
 
 export default function AppRoutes() {
   return (
-    <Suspense fallback={<Loading />}>
+    <Suspense fallback={<LoadingCircular />}>
       <Switch>
-        <Route path={appRouteConfig.auth.path} component={AuthFeature} />
-        <Route path={appRouteConfig.user.path} component={UserFeature} />
-        <Route path={appRouteConfig.accounts.path} component={AccountsFeature} />
-        <Route path={appRouteConfig.transactions.path} component={TransactionsFeature} />
-        <Route path={appRouteConfig.cards.path} component={CardsFeature} />
-        <Route path="/" component={HomeView} />
+        <ErrorBoundaryRoute path={appRouteConfig.auth.path} component={AuthFeature} />
+        <ErrorBoundaryRoute path={appRouteConfig.user.path} component={UserFeature} />
+        <ErrorBoundaryRoute
+          path={appRouteConfig.accounts.path}
+          component={AccountsFeature}
+        />
+        <ErrorBoundaryRoute
+          path={appRouteConfig.transactions.path}
+          component={TransactionsFeature}
+        />
+        <ErrorBoundaryRoute path={appRouteConfig.cards.path} component={CardsFeature} />
+        <ErrorBoundaryRoute path="/" component={HomeView} />
       </Switch>
     </Suspense>
   );
