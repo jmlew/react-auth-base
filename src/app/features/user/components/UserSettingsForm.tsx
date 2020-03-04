@@ -15,9 +15,9 @@ const useStyles = makeStyles((theme: Theme) => {
   };
 });
 
-interface AccountSettingsFormProps {}
+interface UserSettingsFormProps {}
 
-export default function AccountSettingsForm({}: AccountSettingsFormProps) {
+export default function UserSettingsForm({}: UserSettingsFormProps) {
   const classes = useStyles();
   return (
     <Paper elevation={2} className={classes.contentPaper}>
@@ -28,7 +28,7 @@ export default function AccountSettingsForm({}: AccountSettingsFormProps) {
         color="primary"
         gutterBottom={true}
       >
-        Account Settings
+        User Account Settings
       </Typography>
       <Divider className={classes.divider} />
       <Typography align="center">

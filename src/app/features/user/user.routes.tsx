@@ -6,10 +6,10 @@ import { authRouteConfig } from './constants/auth-route-config.constant';
 import SigninView from './views/SigninView';
 import LogoutView from './views/SignoutView';
 import RegisterView from './views/RegisterView';
-import AccountView from './views/AccountView';
+import AccountView from './views/UserView';
 import ForgotPwView from './views/ForgotPwView';
 
-export default function AuthRoutes({ match }: RouteComponentProps) {
+export default function UserRoutes({ match }: RouteComponentProps) {
   const { url } = match;
   const { signin, signout, register, account, forgotPw } = authRouteConfig;
   return (
