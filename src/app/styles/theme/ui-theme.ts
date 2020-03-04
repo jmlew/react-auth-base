@@ -65,12 +65,12 @@ const uiThemeContainers = (theme: Theme) => {
     padding: 40,
   };
   const contentPaper = {
-    paddingTop: 40,
-    paddingBottom: 50,
+    paddingTop: 30,
+    paddingBottom: 40,
     paddingLeft: 40,
     paddingRight: 40,
   };
-  const contentSectionMain = {
+  const contentSection = {
     paddingTop: 40,
     paddingBottom: 45,
     paddingLeft: 20,
@@ -79,7 +79,7 @@ const uiThemeContainers = (theme: Theme) => {
   return {
     contentGreyRound,
     contentPaper,
-    contentSectionMain,
+    contentSection,
   };
 };
 

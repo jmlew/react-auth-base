@@ -12,10 +12,10 @@ const useStyles = makeStyles((theme: Theme) => {
   const { link } = uiThemeGeneral(theme);
   return createStyles({
     root: {
-      marginTop: theme.spacing(1),
+      marginTop: 8,
       minWidth: 210,
     },
-    dividerTop: {
+    divider: {
       marginTop: theme.spacing(2),
       marginBottom: theme.spacing(2),
     },
@@ -50,7 +50,7 @@ export default function NavMenu({ onClose }: NavMenuProps) {
       <Link to={'/'} className={classes.link}>
         <NavListItem icon={IconMat.Home} onSelect={handleSelect} />
       </Link>
-      <Divider className={classes.dividerTop} />
+      <Divider className={classes.divider} />
       {features.map((item: RouteItem) => (
         <Link
           to={`${item.basePath}${item.path}`}
@@ -60,7 +60,7 @@ export default function NavMenu({ onClose }: NavMenuProps) {
           <NavListItem icon={item.icon} label={item.label} onSelect={handleSelect} />
         </Link>
       ))}
-      <Divider />
+      <Divider className={classes.divider} />
     </List>
   );
 }
