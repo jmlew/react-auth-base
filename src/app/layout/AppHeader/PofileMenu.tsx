@@ -8,18 +8,20 @@ import {
   Menu,
   MenuItem,
 } from '@material-ui/core';
-import { IconMat } from '../../shared/enums/icons.enum';
 import { Link } from 'react-router-dom';
-import { authRouteConfig, userRouteConfig } from '../../shared/constants';
 
-const useStyles = makeStyles((theme: Theme) =>
-  createStyles({
+import { IconMat } from '../../shared/enums/icons.enum';
+import { uiThemeGeneral } from '../../styles/theme/ui-theme';
+
+const useStyles = makeStyles((theme: Theme) => {
+  const { link } = uiThemeGeneral(theme);
+  return createStyles({
     link: {
-      textDecoration: 'none',
+      ...link,
       color: theme.palette.grey[800],
     },
-  })
-);
+  });
+});
 
 interface PofileMenuProps {
   signinPath: string;

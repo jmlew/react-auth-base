@@ -1,6 +1,7 @@
 import { RouteConfig } from '../models/routes.model';
+import { IconMat } from '../enums/icons.enum';
 
-const basePath = '/';
+const basePath = '';
 
 /**
  * Route config defining the details for each page which is navigated to via the
@@ -8,11 +9,31 @@ const basePath = '/';
  */
 export const appRouteConfig: RouteConfig = {
   auth: {
-    path: '/auth',
     basePath,
+    path: '/auth',
   },
   user: {
-    path: '/user',
     basePath,
+    path: '/user',
+    label: 'User',
+    icon: IconMat.AccountCircle,
+  },
+  accounts: {
+    basePath,
+    path: '/accounts',
+    label: 'Accounts',
+    icon: IconMat.Accounts,
+  },
+  transactions: {
+    basePath,
+    path: '/transactions',
+    label: 'Transactions',
+    icon: IconMat.Transactions,
+  },
+  cards: {
+    basePath,
+    path: '/cards',
+    label: 'Cards',
+    icon: IconMat.Card,
   },
 };

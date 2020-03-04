@@ -2,14 +2,17 @@ import React, { Fragment } from 'react';
 import { makeStyles, Theme, createStyles, Button } from '@material-ui/core';
 import { Link } from 'react-router-dom';
 
-const useStyles = makeStyles((theme: Theme) =>
-  createStyles({
+import { uiThemeGeneral } from '../../styles/theme/ui-theme';
+
+const useStyles = makeStyles((theme: Theme) => {
+  const { link } = uiThemeGeneral(theme);
+  return createStyles({
     link: {
-      textDecoration: 'none',
+      ...link,
       color: theme.palette.common.white,
     },
-  })
-);
+  });
+});
 
 interface AuthMenuProps {
   signinPath: string;

@@ -1,7 +1,7 @@
-import React, { KeyboardEvent, MouseEvent } from 'react';
+import React from 'react';
 import { Drawer } from '@material-ui/core';
 
-import AppSideNavMenu from './AppSideNavMenu';
+import NavMenu from './NavMenu';
 
 interface AppSidenavProps {
   isOpen: boolean;
@@ -9,20 +9,13 @@ interface AppSidenavProps {
 }
 
 export default function AppSidenav({ isOpen, setOpen }: AppSidenavProps) {
-  const toggleOpen = (state: boolean) => (event: KeyboardEvent | MouseEvent) => {
-    if (isInvalidKey(event.type, (event as KeyboardEvent).key)) {
-      return;
-    }
-    setOpen(state);
-  };
+  function handleClose() {
+    setOpen(false);
+  }
 
   return (
-    <Drawer open={isOpen} onClose={toggleOpen(false)}>
-      <AppSideNavMenu onSelect={toggleOpen(false)} />
+    <Drawer open={isOpen} onClose={handleClose}>
+      <NavMenu onClose={handleClose} />
     </Drawer>
   );
-}
-
-function isInvalidKey(type: string, key: string): boolean {
-  return type === 'keydown' && (key === 'Tab' || key === 'Shift');
 }

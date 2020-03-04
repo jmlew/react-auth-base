@@ -2,6 +2,7 @@
  * Material Design icons.
  */
 export enum IconMat {
+  Accounts = 'account_balance',
   AccountBox = 'account_box',
   AccountCircle = 'account_circle',
   Add = 'add',
@@ -10,6 +11,7 @@ export enum IconMat {
   ArrowDown = 'arrow_downward',
   ArrowUp = 'arrow_upward',
   Calendar = 'perm_contact_calendar',
+  Card = 'credit_card',
   CaretDown = 'keyboard_arrow_down',
   CaretUp = 'keyboard_arrow_up',
   Check = 'check',
@@ -34,6 +36,7 @@ export enum IconMat {
   Person = 'person',
   PersonOutline = 'person_outline',
   Refresh = 'refresh',
+  Transactions = 'compare_arrows',
 
   // Random icons to use as referene to example features.
   RandomA = 'face',
