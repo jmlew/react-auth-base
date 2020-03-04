@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { MouseEvent } from 'react';
 import {
   Typography,
   makeStyles,
@@ -32,9 +32,10 @@ const useStyles = makeStyles((theme: Theme) =>
 
 interface AppHeaderProps {
   isAuthenticated: boolean;
+  toggleSidenav: (event: MouseEvent) => void;
 }
 
-export default function AppHeader({ isAuthenticated }: AppHeaderProps) {
+export default function AppHeader({ isAuthenticated, toggleSidenav }: AppHeaderProps) {
   const classes = useStyles();
 
   const signinPath = `${authRouteConfig.signin.basePath}${authRouteConfig.signin.path}`;
@@ -44,7 +45,11 @@ export default function AppHeader({ isAuthenticated }: AppHeaderProps) {
   return (
     <AppBar position="static">
       <Toolbar>
-        <IconButton className={classes.leftButtons} color="inherit">
+        <IconButton
+          className={classes.leftButtons}
+          color="inherit"
+          onClick={toggleSidenav}
+        >
           <Icon>{IconMat.Menu}</Icon>
         </IconButton>
         <div className={classes.title}>
