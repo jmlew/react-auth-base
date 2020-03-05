@@ -5,7 +5,7 @@ import { ErrorBoundary } from './ErrorBoundary';
 
 // TODO: resolve issue with adding union any type.
 export function ErrorBoundaryRoute({ component: Component, ...rest }: RouteProps | any) {
-  function wrapInErrorBoundary(props: RouteComponentProps<any>) {
+  function withinErrorBoundary(props: RouteComponentProps<any>) {
     return (
       <ErrorBoundary>
         <Component {...props} />
@@ -17,5 +17,5 @@ export function ErrorBoundaryRoute({ component: Component, ...rest }: RouteProps
     throw new Error(`A component needs to be specified for path ${(rest as any).path}`);
   }
 
-  return <Route {...rest} render={wrapInErrorBoundary} />;
+  return <Route {...rest} render={withinErrorBoundary} />;
 }

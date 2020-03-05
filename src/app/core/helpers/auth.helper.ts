@@ -1,4 +1,6 @@
-class AuthHelper {
+import { AuthService } from '../models/auth.model';
+
+class BasicAuthHelper implements AuthService {
   isAuthenticated: boolean = false;
 
   authenticate(cb: VoidFunction) {
@@ -12,5 +14,5 @@ class AuthHelper {
   }
 }
 
-const authHelper = new AuthHelper();
+const authHelper = new BasicAuthHelper();
 export { authHelper };

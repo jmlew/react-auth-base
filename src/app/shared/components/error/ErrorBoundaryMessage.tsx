@@ -9,11 +9,11 @@ interface ErrorBoundaryMessageProps {
 }
 
 const useStyles = makeStyles((theme: Theme) => {
-  const { contentGreyRound } = uiThemeContainers(theme);
+  const { contentRound } = uiThemeContainers(theme);
   return {
-    contentGreyRound,
+    contentRound,
     message: {
-      color: theme.palette.common.white,
+      marginBottom: theme.spacing(6),
     },
   };
 });
@@ -25,7 +25,7 @@ export function ErrorBoundaryMessage({
 }: ErrorBoundaryMessageProps) {
   const classes = useStyles();
   return (
-    <div className={classes.contentGreyRound}>
+    <div className={classes.contentRound}>
       <Typography className={classes.message} align="center" gutterBottom={true}>
         {message}
       </Typography>
