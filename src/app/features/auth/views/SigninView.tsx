@@ -7,11 +7,12 @@ import {
   Container,
   Theme,
 } from '@material-ui/core';
-import { RouteComponentProps } from 'react-router-dom';
+import { RouteComponentProps, useHistory } from 'react-router-dom';
 
 import { SigninForm } from '../components';
 import { IconMat } from '../../../shared/enums/icons.enum';
 import { userRouteConfig } from '../../../shared/constants';
+import { authHelper } from '../../../core/helpers';
 
 const useStyles = makeStyles((theme: Theme) => ({
   root: {
@@ -33,9 +34,13 @@ interface SigninViewProps extends RouteComponentProps {}
 
 export function SigninView({}: SigninViewProps) {
   const classes = useStyles();
+  const history = useHistory();
 
   function handleFormSubmit() {
     console.log('Sign in form submitted');
+    authHelper.authenticate(() => {
+      history.push('/');
+    });
   }
 
   const forgotPwPath = `${userRouteConfig.forgotPw.basePath}${userRouteConfig.forgotPw.path}`;

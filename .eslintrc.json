@@ -2,6 +2,16 @@
   "extends": ["react-app", "plugin:jsx-a11y/recommended"],
   "plugins": ["jsx-a11y"],
   "rules": {
-    "no-empty-pattern": 0
-  }
+    "no-empty-pattern": 0,
+    "no-useless-constructor": 0
+  },
+  "overrides": [
+    {
+      "files": ["**/*.ts"],
+      "rules": {
+        "no-empty-pattern": 0,
+        "no-useless-constructor": 0
+      }
+    }
+  ]
 }

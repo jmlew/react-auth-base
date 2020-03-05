@@ -37,7 +37,7 @@
     "no-eval": true,
     "no-host-metadata-property": true,
     "no-implicit-dependencies": false,
-    "no-inferrable-types": [true, "ignore-params"],
+    "no-inferrable-types": [true, "ignore-params", "ignore-properties"],
     "no-input-rename": true,
     "no-inputs-metadata-property": true,
     "no-non-null-assertion": true,
