@@ -12,6 +12,7 @@ import { RouteComponentProps } from 'react-router-dom';
 import { IconMat } from '../../../shared/enums/icons.enum';
 import { authRouteConfig } from '../../../shared/constants';
 import { RegisterForm } from '../components';
+import { TitleAvatar } from '../../../shared/components/titles';
 
 const useStyles = makeStyles((theme: Theme) => ({
   root: {
@@ -40,17 +41,7 @@ export function RegisterView({}: RegisterViewProps) {
 
   return (
     <Container component="main" maxWidth="xs" className={classes.root}>
-      <Avatar className={classes.avatar}>
-        <Icon>{IconMat.User}</Icon>
-      </Avatar>
-      <Typography
-        component="h1"
-        variant="h5"
-        className={classes.title}
-        gutterBottom={true}
-      >
-        Register
-      </Typography>
+      <TitleAvatar title={'Register'} icon={IconMat.User} />
       <RegisterForm
         onSubmit={handleFormSubmit}
         signinPath={`${authRouteConfig.signin.basePath}${authRouteConfig.signin.path}`}

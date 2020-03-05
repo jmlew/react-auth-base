@@ -11,6 +11,7 @@ import {
 
 import { IconMat } from '../../../shared/enums/icons.enum';
 import { ForgotPwForm } from '../components';
+import { TitleAvatar } from '../../../shared/components/titles';
 
 const useStyles = makeStyles((theme: Theme) => {
   return {
@@ -19,13 +20,6 @@ const useStyles = makeStyles((theme: Theme) => {
       display: 'flex',
       flexDirection: 'column',
       alignItems: 'center',
-    },
-    avatar: {
-      margin: theme.spacing(1),
-      backgroundColor: theme.palette.secondary.main,
-    },
-    title: {
-      marginBottom: theme.spacing(5),
     },
   };
 });
@@ -41,17 +35,7 @@ export function ForgotPwView({}: ForgotPwViewProps) {
 
   return (
     <Container component="main" maxWidth="xs" className={classes.root}>
-      <Avatar className={classes.avatar}>
-        <Icon>{IconMat.LockOpen}</Icon>
-      </Avatar>
-      <Typography
-        component="h1"
-        variant="h5"
-        className={classes.title}
-        gutterBottom={true}
-      >
-        Reset your password
-      </Typography>
+      <TitleAvatar title={'Reset your password'} icon={IconMat.LockOpen} />
       <Typography variant="body2" gutterBottom={true}>
         Please enter the email associated with the account and we'll send you a reset link
       </Typography>
