@@ -49,7 +49,6 @@ export default function AppHeader({
   const signinPath = `${authRouteConfig.signin.basePath}${authRouteConfig.signin.path}`;
   const accountPath = `${userRouteConfig.account.basePath}${userRouteConfig.account.path}`;
   const registerPath = `${userRouteConfig.register.basePath}${userRouteConfig.register.path}`;
-  // const signoutPath = `${authRouteConfig.signout.basePath}${authRouteConfig.signout.path}`;
 
   return (
     <AppBar position="static">

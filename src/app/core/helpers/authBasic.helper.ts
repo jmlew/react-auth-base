@@ -1,4 +1,4 @@
-import { AuthService } from '../models/auth.model';
+import { AuthService } from '../../shared/models/auth.model';
 
 class BasicAuthHelper implements AuthService {
   isAuthenticated: boolean = false;
@@ -14,5 +14,5 @@ class BasicAuthHelper implements AuthService {
   }
 }
 
-const authHelper = new BasicAuthHelper();
-export { authHelper };
+const authBasicHelper = new BasicAuthHelper();
+export { authBasicHelper };

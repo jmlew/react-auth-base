@@ -6,7 +6,7 @@ import AppHeader from '../layout/header/AppHeader';
 import AppFooter from '../layout/footer/AppFooter';
 import AppSidenav from '../layout/sidenav/AppSidenav';
 import AppRoutes from './app.routes';
-import { authHelper } from '../core/helpers';
+import { authBasicHelper } from '../core/helpers';
 import { authRouteConfig } from '../shared/constants';
 
 const useStyles = makeStyles((theme: Theme) => ({
@@ -29,14 +29,14 @@ export default function AppShell() {
   const [isSidenavOpen, setSidenavOpen] = useState(false);
   const history = useHistory();
   const classes = useStyles();
-  const isAuthenticated = authHelper.isAuthenticated;
+  const isAuthenticated = authBasicHelper.isAuthenticated;
 
   function handleToggleSidenav(event: MouseEvent) {
     setSidenavOpen(!isSidenavOpen);
   }
 
   function handleSignout() {
-    authHelper.signout(() => {
+    authBasicHelper.signout(() => {
       const signoutPath = `${authRouteConfig.signout.basePath}${authRouteConfig.signout.path}`;
       history.push(signoutPath);
     });

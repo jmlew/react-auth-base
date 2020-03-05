@@ -7,7 +7,7 @@ import { appRouteConfig } from '../shared/constants';
 // Non lazy-loaded features.
 import HomeView from '../features/home/views/HomeView';
 import AuthFeature from '../features/auth/auth.routes';
-import { AuthGuardRoute } from '../core/components/auth';
+import { AuthGuardRouteBasic } from '../core/components/guards';
 
 // Lazy-loaded features.
 const UserFeature = lazy(() => import('../features/user/user.routes'));
@@ -23,12 +23,15 @@ export default function AppRoutes() {
       <Switch>
         <ErrorBoundaryRoute path={appRouteConfig.auth.path} component={AuthFeature} />
         <ErrorBoundaryRoute path={appRouteConfig.user.path} component={UserFeature} />
-        <AuthGuardRoute path={appRouteConfig.accounts.path} component={AccountsFeature} />
-        <AuthGuardRoute
+        <AuthGuardRouteBasic
+          path={appRouteConfig.accounts.path}
+          component={AccountsFeature}
+        />
+        <AuthGuardRouteBasic
           path={appRouteConfig.transactions.path}
           component={TransactionsFeature}
         />
-        <AuthGuardRoute path={appRouteConfig.cards.path} component={CardsFeature} />
+        <AuthGuardRouteBasic path={appRouteConfig.cards.path} component={CardsFeature} />
         <ErrorBoundaryRoute path="/" component={HomeView} />
       </Switch>
     </Suspense>
