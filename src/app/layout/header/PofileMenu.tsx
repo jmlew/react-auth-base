@@ -24,11 +24,12 @@ const useStyles = makeStyles((theme: Theme) => {
 });
 
 interface PofileMenuProps {
-  signinPath: string;
+  // signoutPath: string;
   accountPath: string;
+  onSignout: () => void;
 }
 
-export default function PofileMenu({ signinPath, accountPath }: PofileMenuProps) {
+export default function PofileMenu({ accountPath, onSignout }: PofileMenuProps) {
   const classes = useStyles();
 
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
@@ -37,9 +38,14 @@ export default function PofileMenu({ signinPath, accountPath }: PofileMenuProps)
     setAnchorEl(event.currentTarget);
   };
 
-  const handleClose = () => {
+  function handleClose() {
     setAnchorEl(null);
-  };
+  }
+
+  function handleSignout() {
+    handleClose();
+    onSignout();
+  }
 
   return (
     <Fragment>
@@ -58,10 +64,10 @@ export default function PofileMenu({ signinPath, accountPath }: PofileMenuProps)
             Account
           </Link>
         </MenuItem>
-        <MenuItem onClick={handleClose}>
-          <Link to={signinPath} className={classes.link}>
-            Signout
-          </Link>
+        <MenuItem onClick={handleSignout}>
+          Signout
+          {/* <Link to={signoutPath} className={classes.link}>
+          </Link> */}
         </MenuItem>
       </Menu>
     </Fragment>

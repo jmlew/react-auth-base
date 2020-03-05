@@ -17,6 +17,9 @@ import { authRouteConfig, userRouteConfig } from '../../shared/constants';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
+    leftButtonsSpacer: {
+      width: 30,
+    },
     leftButtons: {
       marginLeft: theme.spacing(0),
       marginRight: theme.spacing(2),
@@ -32,32 +35,42 @@ const useStyles = makeStyles((theme: Theme) =>
 
 interface AppHeaderProps {
   isAuthenticated: boolean;
-  toggleSidenav: (event: MouseEvent) => void;
+  onSignout: () => void;
+  onToggleSidenav: (event: MouseEvent) => void;
 }
 
-export default function AppHeader({ isAuthenticated, toggleSidenav }: AppHeaderProps) {
+export default function AppHeader({
+  isAuthenticated,
+  onToggleSidenav,
+  onSignout,
+}: AppHeaderProps) {
   const classes = useStyles();
 
   const signinPath = `${authRouteConfig.signin.basePath}${authRouteConfig.signin.path}`;
   const accountPath = `${userRouteConfig.account.basePath}${userRouteConfig.account.path}`;
   const registerPath = `${userRouteConfig.register.basePath}${userRouteConfig.register.path}`;
+  // const signoutPath = `${authRouteConfig.signout.basePath}${authRouteConfig.signout.path}`;
 
   return (
     <AppBar position="static">
       <Toolbar>
-        <IconButton
-          className={classes.leftButtons}
-          color="inherit"
-          onClick={toggleSidenav}
-        >
-          <Icon>{IconMat.Menu}</Icon>
-        </IconButton>
+        {isAuthenticated ? (
+          <IconButton
+            className={classes.leftButtons}
+            color="inherit"
+            onClick={onToggleSidenav}
+          >
+            <Icon>{IconMat.Menu}</Icon>
+          </IconButton>
+        ) : (
+          <div className={classes.leftButtonsSpacer} />
+        )}
         <div className={classes.title}>
           <Typography variant="h6">Authenticator App</Typography>
         </div>
         <div className={classes.rightButtons}>
           {isAuthenticated ? (
-            <ProfieMenu signinPath={signinPath} accountPath={accountPath} />
+            <ProfieMenu onSignout={onSignout} accountPath={accountPath} />
           ) : (
             <AuthMenu signinPath={signinPath} registerPath={registerPath} />
           )}

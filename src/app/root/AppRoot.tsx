@@ -1,6 +1,7 @@
+import React from 'react';
+import { BrowserRouter } from 'react-router-dom';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import { MuiThemeProvider } from '@material-ui/core/styles';
-import React from 'react';
 
 import './styles.scss';
 import { muiTheme } from '../styles/theme/mui-theme';
@@ -10,7 +11,9 @@ function AppRoot() {
   return (
     <MuiThemeProvider theme={muiTheme}>
       <CssBaseline />
-      <AppShell />
+      <BrowserRouter>
+        <AppShell />
+      </BrowserRouter>
     </MuiThemeProvider>
   );
 }

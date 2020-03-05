@@ -1,11 +1,13 @@
 import React, { useState, MouseEvent } from 'react';
-import { BrowserRouter as Router } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import { Container, makeStyles, Theme } from '@material-ui/core';
 
 import AppHeader from '../layout/header/AppHeader';
 import AppFooter from '../layout/footer/AppFooter';
 import AppSidenav from '../layout/sidenav/AppSidenav';
 import AppRoutes from './app.routes';
+import { authHelper } from '../core/helpers';
+import { authRouteConfig } from '../shared/constants';
 
 const useStyles = makeStyles((theme: Theme) => ({
   root: {
@@ -25,25 +27,35 @@ const useStyles = makeStyles((theme: Theme) => ({
 
 export default function AppShell() {
   const [isSidenavOpen, setSidenavOpen] = useState(false);
+  const history = useHistory();
   const classes = useStyles();
-  const isAuthenticated = true;
+  const isAuthenticated = authHelper.isAuthenticated;
 
-  function toggleSidenav(event: MouseEvent) {
+  function handleToggleSidenav(event: MouseEvent) {
     setSidenavOpen(!isSidenavOpen);
   }
 
+  function handleSignout() {
+    authHelper.signout(() => {
+      const signoutPath = `${authRouteConfig.signout.basePath}${authRouteConfig.signout.path}`;
+      history.push(signoutPath);
+    });
+  }
+
   return (
-    <Router>
-      <div className={classes.root}>
-        <AppHeader isAuthenticated={isAuthenticated} toggleSidenav={toggleSidenav} />
-        <AppSidenav isOpen={isSidenavOpen} setOpen={setSidenavOpen} />
-        <Container maxWidth="md" className={classes.content}>
-          <AppRoutes />
-        </Container>
-        <footer className={classes.footer}>
-          <AppFooter />
-        </footer>
-      </div>
-    </Router>
+    <div className={classes.root}>
+      <AppHeader
+        isAuthenticated={isAuthenticated}
+        onSignout={handleSignout}
+        onToggleSidenav={handleToggleSidenav}
+      />
+      <AppSidenav isOpen={isSidenavOpen} setOpen={setSidenavOpen} />
+      <Container maxWidth="md" className={classes.content}>
+        <AppRoutes />
+      </Container>
+      <footer className={classes.footer}>
+        <AppFooter />
+      </footer>
+    </div>
   );
 }

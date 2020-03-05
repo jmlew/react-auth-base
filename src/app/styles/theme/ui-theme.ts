@@ -59,10 +59,16 @@ const uiThemeForm = (theme: Theme) => {
 };
 
 const uiThemeContainers = (theme: Theme) => {
-  const contentGreyRound = {
-    background: theme.palette.grey[600],
+  const contentRound = {
+    background: theme.palette.grey[50],
+    border: `1px solid ${theme.palette.grey[200]}`,
     borderRadius: 40,
     padding: 40,
+  };
+  const contentGreyRound = {
+    borderRadius: 40,
+    padding: 40,
+    background: theme.palette.grey[600],
   };
   const contentPaper = {
     paddingTop: 30,
@@ -77,6 +83,7 @@ const uiThemeContainers = (theme: Theme) => {
     paddingRight: 20,
   };
   return {
+    contentRound,
     contentGreyRound,
     contentPaper,
     contentSection,
