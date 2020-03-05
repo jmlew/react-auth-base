@@ -29,7 +29,7 @@ export default function AppRoutes() {
           component={TransactionsFeature}
         />
         <AuthGuardRoute path={appRouteConfig.cards.path} component={CardsFeature} />
-        <AuthGuardRoute path="/" component={HomeView} />
+        <ErrorBoundaryRoute path="/" component={HomeView} />
       </Switch>
     </Suspense>
   );

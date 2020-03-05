@@ -16,7 +16,7 @@ export const appRouteConfig: RouteConfig = {
     basePath,
     path: '/user',
     label: 'User',
-    icon: IconMat.AccountCircle,
+    icon: IconMat.User,
   },
   accounts: {
     basePath,
@@ -28,7 +28,7 @@ export const appRouteConfig: RouteConfig = {
     basePath,
     path: '/transactions',
     label: 'Transactions',
-    icon: IconMat.Transactions,
+    icon: IconMat.TransactionsFilled,
   },
   cards: {
     basePath,

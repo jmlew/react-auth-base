@@ -41,7 +41,7 @@ export function RegisterView({}: RegisterViewProps) {
   return (
     <Container component="main" maxWidth="xs" className={classes.root}>
       <Avatar className={classes.avatar}>
-        <Icon>{IconMat.AccountCircle}</Icon>
+        <Icon>{IconMat.User}</Icon>
       </Avatar>
       <Typography
         component="h1"

@@ -1,8 +1,8 @@
 import React, { Fragment } from 'react';
 import { Typography, Divider, makeStyles, Theme, Button } from '@material-ui/core';
+import { Link } from 'react-router-dom';
 
 import { uiThemeGeneral, uiThemeButtons } from '../../../styles/theme/ui-theme';
-import { Link } from 'react-router-dom';
 
 const useStyles = makeStyles((theme: Theme) => {
   const { divider, link } = uiThemeGeneral(theme);
@@ -17,17 +17,16 @@ const useStyles = makeStyles((theme: Theme) => {
     signIn: {
       display: 'flex',
       justifyContent: 'center',
-      marginTop: theme.spacing(8),
+      marginTop: theme.spacing(10),
     },
   };
 });
 
 interface WelcomeProps {
-  isAuthenticated: boolean;
   signinPath: string;
 }
 
-export function Welcome({ isAuthenticated, signinPath }: WelcomeProps) {
+export function Welcome({ signinPath }: WelcomeProps) {
   const classes = useStyles();
   return (
     <Fragment>
@@ -47,15 +46,13 @@ export function Welcome({ isAuthenticated, signinPath }: WelcomeProps) {
         voluptates inventore exercitationem. Voluptatum, sint. Quidem iusto amet
         perspiciatis!
       </Typography>
-      {!isAuthenticated && (
-        <div className={classes.signIn}>
-          <Link to={signinPath} className={classes.link}>
-            <Button variant="contained" color="primary" className={classes.btnRounded}>
-              Sign in
-            </Button>
-          </Link>
-        </div>
-      )}
+      <div className={classes.signIn}>
+        <Link to={signinPath} className={classes.link}>
+          <Button variant="contained" color="primary" className={classes.btnRounded}>
+            Sign in
+          </Button>
+        </Link>
+      </div>
     </Fragment>
   );
 }

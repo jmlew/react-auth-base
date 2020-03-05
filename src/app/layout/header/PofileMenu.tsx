@@ -50,7 +50,7 @@ export default function PofileMenu({ accountPath, onSignout }: PofileMenuProps) 
   return (
     <Fragment>
       <IconButton onClick={handleMenuBtnClick} color="inherit">
-        <Icon>{IconMat.AccountCircle}</Icon>
+        <Icon>{IconMat.User}</Icon>
       </IconButton>
       <Menu
         id="profile-menu"

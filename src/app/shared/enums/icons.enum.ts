@@ -4,7 +4,6 @@
 export enum IconMat {
   Accounts = 'account_balance',
   AccountBox = 'account_box',
-  AccountCircle = 'account_circle',
   Add = 'add',
   AddCircle = 'add_circle',
   Apps = 'apps',
@@ -37,6 +36,8 @@ export enum IconMat {
   PersonOutline = 'person_outline',
   Refresh = 'refresh',
   Transactions = 'compare_arrows',
+  TransactionsFilled = 'swap_horizontal_circle',
+  User = 'account_circle',
 
   // Random icons to use as referene to example features.
   RandomA = 'face',
