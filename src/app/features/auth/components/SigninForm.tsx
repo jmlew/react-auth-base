@@ -1,16 +1,12 @@
 import React from 'react';
+import * as Yup from 'yup';
 import { useFormik } from 'formik';
-import {
-  makeStyles,
-  Button,
-  Checkbox,
-  FormControlLabel,
-  TextField,
-  Theme,
-} from '@material-ui/core';
+import { makeStyles, Button, Checkbox, FormControlLabel, Theme } from '@material-ui/core';
 
+import { SigninFormField } from '../enums/form-fields.enum';
 import { uiThemeForm } from '../../../styles/theme/ui-theme';
 import { AuthSignInParams } from '../../../core/auth/models/auth.model';
+import { TextFieldInput } from '../../../shared/components/inputs';
 
 const useStyles = makeStyles((theme: Theme) => ({
   ...uiThemeForm(theme),
@@ -18,11 +14,6 @@ const useStyles = makeStyles((theme: Theme) => ({
 
 interface SigninFormProps {
   onSubmit: (values: AuthSignInParams) => void;
-}
-
-enum SigninFormField {
-  Email = 'email',
-  Password = 'password',
 }
 
 export function SigninForm({ onSubmit }: SigninFormProps) {
@@ -36,40 +27,37 @@ export function SigninForm({ onSubmit }: SigninFormProps) {
     [SigninFormField.Email]: 'Email Address',
     [SigninFormField.Password]: 'Password',
   };
-
   const form = useFormik({
     initialValues,
+    validationSchema: Yup.object({
+      [SigninFormField.Password]: Yup.string()
+        .min(8, 'Must be 8 or more characters')
+        .required('Required'),
+      [SigninFormField.Email]: Yup.string()
+        .email('Invalid email address')
+        .required('Required'),
+    }),
     onSubmit,
   });
 
   return (
     <form className={classes.form} onSubmit={form.handleSubmit}>
-      <TextField
-        className={classes.input}
-        variant="outlined"
-        margin="normal"
-        required={true}
-        fullWidth={true}
-        autoComplete="email"
+      <TextFieldInput
+        {...form.getFieldProps(SigninFormField.Email)}
+        field={SigninFormField.Email}
         label={formLabels[SigninFormField.Email]}
-        id={SigninFormField.Email}
-        name={SigninFormField.Email}
-        value={form.values[SigninFormField.Email]}
-        onChange={form.handleChange}
+        errors={form.errors}
+        touched={form.touched}
+        autoComplete={'email'}
       />
-      <TextField
-        className={classes.input}
-        type="password"
-        autoComplete="current-password"
-        variant="outlined"
-        margin="normal"
-        required={true}
-        fullWidth={true}
+      <TextFieldInput
+        {...form.getFieldProps(SigninFormField.Password)}
+        field={SigninFormField.Password}
         label={formLabels[SigninFormField.Password]}
-        id={SigninFormField.Password}
-        name={SigninFormField.Password}
-        value={form.values[SigninFormField.Password]}
-        onChange={form.handleChange}
+        errors={form.errors}
+        touched={form.touched}
+        type={'password'}
+        autoComplete={'current-password'}
       />
       <FormControlLabel
         control={<Checkbox value="remember" color="primary" />}
