@@ -3,9 +3,16 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
+    "------ SERVE ------": "",
     "start": "react-scripts start",
+    "------ BUILD ------": "",
     "build": "react-scripts build",
+    "------ TEST -------": "",
     "test": "react-scripts test",
+    "------ CODE -------": "",
+    "lint": "tslint -p ./tsconfig.json",
+    "lint:fix": "npm run lint -- --fix",
+    "------ MISC -------": "",
     "eject": "react-scripts eject"
   },
   "dependencies": {

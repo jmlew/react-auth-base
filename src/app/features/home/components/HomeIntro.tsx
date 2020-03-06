@@ -1,9 +1,10 @@
 import React, { Fragment } from 'react';
-import { Typography, Divider, makeStyles, Theme } from '@material-ui/core';
+import { makeStyles, Divider, Theme, Typography } from '@material-ui/core';
 
 import { uiThemeGeneral } from '../../../styles/theme/ui-theme';
 import { RouteItem } from '../../../shared/models/routes.model';
 import { appRouteConfig } from '../../../shared/constants';
+
 import { HomeIntroMenu } from './HomeIntroMenu';
 
 const useStyles = makeStyles((theme: Theme) => {

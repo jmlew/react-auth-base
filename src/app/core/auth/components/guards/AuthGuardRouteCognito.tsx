@@ -3,6 +3,7 @@ import React, { ComponentType } from 'react';
 import { authRouteConfig } from '../../../../shared/constants';
 import { authBasicHelper } from '../../helpers';
 import { AuthService } from '../../models/auth.model';
+
 import { AuthGuardRouteProps, AuthRouteGuard } from './AuthRouteGuard';
 
 /**

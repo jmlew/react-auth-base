@@ -1,8 +1,9 @@
 import React, { Suspense } from 'react';
-import { Switch, RouteComponentProps } from 'react-router-dom';
+import { RouteComponentProps, Switch } from 'react-router-dom';
+
+import { ErrorBoundaryRoute, LoadingCircular } from '../../shared/components';
 
 import { AccountsView } from './views';
-import { LoadingCircular, ErrorBoundaryRoute } from '../../shared/components';
 
 export default function AccountRoutes({ match }: RouteComponentProps) {
   const { url } = match;

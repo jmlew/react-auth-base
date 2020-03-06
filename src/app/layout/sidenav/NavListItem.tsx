@@ -1,11 +1,11 @@
 import React, { KeyboardEvent, MouseEvent } from 'react';
 import {
   makeStyles,
-  Theme,
+  Icon,
   ListItem,
   ListItemIcon,
-  Icon,
   ListItemText,
+  Theme,
 } from '@material-ui/core';
 
 import { IconMat } from '../../shared/enums/icons.enum';

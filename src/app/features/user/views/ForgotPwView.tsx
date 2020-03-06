@@ -1,6 +1,6 @@
 import React from 'react';
 import { RouteComponentProps } from 'react-router-dom';
-import { makeStyles, Container, Typography, Theme } from '@material-ui/core';
+import { makeStyles, Container, Theme, Typography } from '@material-ui/core';
 
 import { IconMat } from '../../../shared/enums/icons.enum';
 import { ForgotPwForm } from '../components';

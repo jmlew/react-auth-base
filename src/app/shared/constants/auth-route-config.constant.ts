@@ -1,4 +1,5 @@
 import { RouteConfig } from '../models/routes.model';
+
 import { appRouteConfig } from './app-route-config.constant';
 
 const basePath: string = appRouteConfig.auth.path;

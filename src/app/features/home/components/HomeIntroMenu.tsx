@@ -1,8 +1,8 @@
 import React from 'react';
-import { makeStyles, Theme, Button, Avatar, Icon } from '@material-ui/core';
+import { makeStyles, Avatar, Button, Icon, Theme } from '@material-ui/core';
 import { Link } from 'react-router-dom';
 
-import { uiThemeGeneral, uiThemeButtons } from '../../../styles/theme/ui-theme';
+import { uiThemeButtons, uiThemeGeneral } from '../../../styles/theme/ui-theme';
 import { RouteItem } from '../../../shared/models/routes.model';
 
 const useStyles = makeStyles((theme: Theme) => {

@@ -2,11 +2,11 @@ import React from 'react';
 import { useFormik } from 'formik';
 import {
   makeStyles,
-  Theme,
-  TextField,
-  FormControlLabel,
-  Checkbox,
   Button,
+  Checkbox,
+  FormControlLabel,
+  TextField,
+  Theme,
 } from '@material-ui/core';
 
 import { uiThemeForm } from '../../../styles/theme/ui-theme';

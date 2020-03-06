@@ -1,11 +1,11 @@
 import React from 'react';
-import { makeStyles, Theme, Typography, Divider, Button, Box } from '@material-ui/core';
+import { makeStyles, Box, Button, Divider, Theme, Typography } from '@material-ui/core';
 import { Link } from 'react-router-dom';
 
 import {
-  uiThemeGeneral,
-  uiThemeContainers,
   uiThemeButtons,
+  uiThemeContainers,
+  uiThemeGeneral,
 } from '../../../styles/theme/ui-theme';
 
 const useStyles = makeStyles((theme: Theme) => {

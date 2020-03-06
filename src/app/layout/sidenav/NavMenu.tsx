@@ -1,12 +1,13 @@
 import React, { KeyboardEvent, MouseEvent } from 'react';
-import { makeStyles, Theme, List, Divider, createStyles } from '@material-ui/core';
+import { createStyles, makeStyles, Divider, List, Theme } from '@material-ui/core';
+import { Link } from 'react-router-dom';
 
-import NavListItem from './NavListItem';
 import { IconMat } from '../../shared/enums/icons.enum';
 import { RouteItem } from '../../shared/models/routes.model';
 import { appRouteConfig } from '../../shared/constants';
 import { uiThemeGeneral } from '../../styles/theme/ui-theme';
-import { Link } from 'react-router-dom';
+
+import NavListItem from './NavListItem';
 
 const useStyles = makeStyles((theme: Theme) => {
   const { link } = uiThemeGeneral(theme);

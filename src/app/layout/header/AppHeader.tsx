@@ -1,19 +1,20 @@
 import React, { MouseEvent } from 'react';
 import {
-  Typography,
-  makeStyles,
-  Theme,
   createStyles,
+  makeStyles,
   AppBar,
-  Toolbar,
-  IconButton,
   Icon,
+  IconButton,
+  Theme,
+  Toolbar,
+  Typography,
 } from '@material-ui/core';
+
 import { IconMat } from '../../shared/enums/icons.enum';
+import { authRouteConfig, userRouteConfig } from '../../shared/constants';
 
 import ProfieMenu from './PofileMenu';
 import AuthMenu from './AuthMenu';
-import { authRouteConfig, userRouteConfig } from '../../shared/constants';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({

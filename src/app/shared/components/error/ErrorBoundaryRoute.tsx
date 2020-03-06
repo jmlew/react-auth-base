@@ -1,5 +1,5 @@
 import React, { ComponentType } from 'react';
-import { RouteProps, RouteComponentProps, Route } from 'react-router-dom';
+import { Route, RouteComponentProps, RouteProps } from 'react-router-dom';
 
 import { ErrorBoundary } from './ErrorBoundary';
 

@@ -1,5 +1,5 @@
 import React from 'react';
-import { RouteComponentProps, Redirect, Route, RouteProps } from 'react-router-dom';
+import { Redirect, Route, RouteComponentProps, RouteProps } from 'react-router-dom';
 
 import { AuthState } from '../../models/auth.model';
 import { withinErrorBoundary } from '../../../../shared/components';

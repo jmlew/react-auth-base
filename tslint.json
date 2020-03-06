@@ -35,17 +35,10 @@
     "no-empty": false,
     "no-empty-interface": false,
     "no-eval": true,
-    "no-host-metadata-property": true,
     "no-implicit-dependencies": false,
     "no-inferrable-types": [true, "ignore-params", "ignore-properties"],
-    "no-input-rename": true,
-    "no-inputs-metadata-property": true,
     "no-non-null-assertion": true,
     "no-misused-new": true,
-    "no-output-native": true,
-    "no-output-on-prefix": true,
-    "no-output-rename": true,
-    "no-outputs-metadata-property": true,
     "no-redundant-jsdoc": true,
     "no-shadowed-variable": true,
     "no-submodule-imports": false,
@@ -57,6 +50,15 @@
     "no-var-keyword": true,
     "object-literal-key-quotes": [true, "as-needed"],
     "object-literal-sort-keys": false,
+    "ordered-imports": [
+      true,
+      {
+        "grouped-imports": true,
+        "import-sources-order": "any",
+        "named-imports-order": "lowercase-first",
+        "module-source-path": "basename"
+      }
+    ],
     "prefer-const": true,
     "quotemark": [true, "single", "jsx-double"],
     "radix": true,

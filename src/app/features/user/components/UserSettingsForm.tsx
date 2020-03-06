@@ -1,7 +1,7 @@
 import React from 'react';
-import { makeStyles, Theme, Typography, Divider, Paper } from '@material-ui/core';
+import { makeStyles, Divider, Paper, Theme, Typography } from '@material-ui/core';
 
-import { uiThemeGeneral, uiThemeContainers } from '../../../styles/theme/ui-theme';
+import { uiThemeContainers, uiThemeGeneral } from '../../../styles/theme/ui-theme';
 
 const useStyles = makeStyles((theme: Theme) => {
   const { contentPaper } = uiThemeContainers(theme);

@@ -1,5 +1,6 @@
 import React, { ErrorInfo } from 'react';
-import { Typography, makeStyles, Theme } from '@material-ui/core';
+import { makeStyles, Theme, Typography } from '@material-ui/core';
+
 import { uiThemeContainers } from '../../../styles/theme/ui-theme';
 
 interface ErrorBoundaryMessageProps {

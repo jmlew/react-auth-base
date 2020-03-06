@@ -2,10 +2,10 @@ import React from 'react';
 import {
   makeStyles,
   Avatar,
-  Typography,
-  Icon,
   Container,
+  Icon,
   Theme,
+  Typography,
 } from '@material-ui/core';
 import { RouteComponentProps } from 'react-router-dom';
 

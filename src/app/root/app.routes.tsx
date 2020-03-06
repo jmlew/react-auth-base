@@ -1,13 +1,13 @@
 import React, { lazy, Suspense } from 'react';
 import { Switch } from 'react-router-dom';
 
-import { LoadingCircular, ErrorBoundaryRoute } from '../shared/components';
+import { ErrorBoundaryRoute, LoadingCircular } from '../shared/components';
 import { appRouteConfig } from '../shared/constants';
-
-// Non lazy-loaded features.
 import HomeView from '../features/home/views/HomeView';
 import AuthFeature from '../features/auth/auth.routes';
 import { AuthGuardRouteBasic } from '../core/auth/components/guards';
+
+// Non lazy-loaded features.
 
 // Lazy-loaded features.
 const UserFeature = lazy(() => import('../features/user/user.routes'));

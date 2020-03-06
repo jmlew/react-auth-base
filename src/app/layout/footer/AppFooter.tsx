@@ -1,5 +1,6 @@
 import React, { Fragment } from 'react';
-import { makeStyles, Theme, Divider, Container, Typography } from '@material-ui/core';
+import { makeStyles, Container, Divider, Theme, Typography } from '@material-ui/core';
+
 import { themeColours } from '../../styles/theme/colors';
 
 interface AppFooterProps {}

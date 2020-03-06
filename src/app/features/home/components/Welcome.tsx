@@ -1,8 +1,8 @@
 import React, { Fragment } from 'react';
-import { Typography, Divider, makeStyles, Theme, Button } from '@material-ui/core';
+import { makeStyles, Button, Divider, Theme, Typography } from '@material-ui/core';
 import { Link } from 'react-router-dom';
 
-import { uiThemeGeneral, uiThemeButtons } from '../../../styles/theme/ui-theme';
+import { uiThemeButtons, uiThemeGeneral } from '../../../styles/theme/ui-theme';
 
 const useStyles = makeStyles((theme: Theme) => {
   const { divider, link } = uiThemeGeneral(theme);

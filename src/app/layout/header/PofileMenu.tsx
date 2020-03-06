@@ -1,12 +1,12 @@
 import React, { useState, Fragment } from 'react';
 import {
-  makeStyles,
-  Theme,
   createStyles,
-  IconButton,
+  makeStyles,
   Icon,
+  IconButton,
   Menu,
   MenuItem,
+  Theme,
 } from '@material-ui/core';
 import { Link } from 'react-router-dom';
 

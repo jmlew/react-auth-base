@@ -1,13 +1,14 @@
 import React, { useState, MouseEvent } from 'react';
 import { useHistory } from 'react-router-dom';
-import { Container, makeStyles, Theme } from '@material-ui/core';
+import { makeStyles, Container, Theme } from '@material-ui/core';
 
 import AppHeader from '../layout/header/AppHeader';
 import AppFooter from '../layout/footer/AppFooter';
 import AppSidenav from '../layout/sidenav/AppSidenav';
-import AppRoutes from './app.routes';
 import { authBasicHelper } from '../core/auth/helpers';
 import { authRouteConfig } from '../shared/constants';
+
+import AppRoutes from './app.routes';
 
 const useStyles = makeStyles((theme: Theme) => ({
   root: {

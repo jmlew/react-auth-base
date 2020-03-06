@@ -1,9 +1,10 @@
 import React from 'react';
-import { Switch, RouteComponentProps, Redirect } from 'react-router-dom';
+import { Redirect, RouteComponentProps, Switch } from 'react-router-dom';
 
 import { authRouteConfig } from '../../shared/constants';
-import { SigninView, SignoutView } from './views';
 import { ErrorBoundaryRoute } from '../../shared/components';
+
+import { SigninView, SignoutView } from './views';
 
 export default function AuthRoutes({ match }: RouteComponentProps) {
   const { url } = match;

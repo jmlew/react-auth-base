@@ -1,5 +1,5 @@
 import React from 'react';
-import { makeStyles, Theme, TextField, Button } from '@material-ui/core';
+import { makeStyles, Button, TextField, Theme } from '@material-ui/core';
 
 import { uiThemeForm } from '../../../styles/theme/ui-theme';
 

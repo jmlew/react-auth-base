@@ -1,8 +1,8 @@
 import red from '@material-ui/core/colors/red';
-
 import { createMuiTheme, Theme } from '@material-ui/core/styles';
-import { themeColours } from './colors';
 import { Palette } from '@material-ui/core/styles/createPalette';
+
+import { themeColours } from './colors';
 
 /**
  * Material UI (@material-ui) theme settings.

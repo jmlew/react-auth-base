@@ -1,3 +1,3 @@
 import React, { Fragment } from 'react';
 
-export const HeaderLogo = () => <Fragment></Fragment>;
+export const HeaderLogo = () => <Fragment />;
