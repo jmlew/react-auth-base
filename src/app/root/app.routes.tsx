@@ -7,7 +7,7 @@ import { appRouteConfig } from '../shared/constants';
 // Non lazy-loaded features.
 import HomeView from '../features/home/views/HomeView';
 import AuthFeature from '../features/auth/auth.routes';
-import { AuthGuardRouteBasic } from '../core/components/guards';
+import { AuthGuardRouteBasic } from '../core/auth/components/guards';
 
 // Lazy-loaded features.
 const UserFeature = lazy(() => import('../features/user/user.routes'));

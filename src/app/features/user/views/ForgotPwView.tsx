@@ -1,17 +1,10 @@
 import React from 'react';
 import { RouteComponentProps } from 'react-router-dom';
-import {
-  makeStyles,
-  Container,
-  Avatar,
-  Icon,
-  Typography,
-  Theme,
-} from '@material-ui/core';
+import { makeStyles, Container, Typography, Theme } from '@material-ui/core';
 
 import { IconMat } from '../../../shared/enums/icons.enum';
 import { ForgotPwForm } from '../components';
-import { TitleAvatar } from '../../../shared/components/titles';
+import { TitleAvatar } from '../../../shared/components';
 
 const useStyles = makeStyles((theme: Theme) => {
   return {

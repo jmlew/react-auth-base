@@ -4,9 +4,7 @@ import { RouteComponentProps } from 'react-router-dom';
 import { SignoutComplete } from '../components';
 import { authRouteConfig } from '../../../shared/constants';
 
-interface SignoutViewProps extends RouteComponentProps {}
-
-export function SignoutView({}: SignoutViewProps) {
+export function SignoutView(props: RouteComponentProps) {
   const signinPath = `${authRouteConfig.signin.basePath}${authRouteConfig.signin.path}`;
   return <SignoutComplete signinPath={signinPath} />;
 }

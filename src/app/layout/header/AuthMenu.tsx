@@ -6,12 +6,12 @@ import { uiThemeGeneral } from '../../styles/theme/ui-theme';
 
 const useStyles = makeStyles((theme: Theme) => {
   const { link } = uiThemeGeneral(theme);
-  return createStyles({
+  return {
     link: {
       ...link,
       color: theme.palette.common.white,
     },
-  });
+  };
 });
 
 interface AuthMenuProps {

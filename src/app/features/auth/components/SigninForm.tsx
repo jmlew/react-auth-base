@@ -1,4 +1,5 @@
 import React from 'react';
+import { useFormik } from 'formik';
 import {
   makeStyles,
   Theme,
@@ -6,54 +7,69 @@ import {
   FormControlLabel,
   Checkbox,
   Button,
-  Grid,
 } from '@material-ui/core';
-import { Link } from 'react-router-dom';
 
 import { uiThemeForm } from '../../../styles/theme/ui-theme';
+import { AuthSignInParams } from '../../../core/auth/models/auth.model';
 
 const useStyles = makeStyles((theme: Theme) => ({
   ...uiThemeForm(theme),
 }));
 
 interface SigninFormProps {
-  registerPath: string;
-  forgotPwPath: string;
-  onSubmit: () => void;
+  onSubmit: (values: AuthSignInParams) => void;
 }
 
-export function SigninForm({ registerPath, forgotPwPath, onSubmit }: SigninFormProps) {
+enum SigninFormField {
+  Email = 'email',
+  Password = 'password',
+}
+
+export function SigninForm({ onSubmit }: SigninFormProps) {
   const classes = useStyles();
 
-  function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
-    onSubmit();
-    event.preventDefault();
-  }
+  const initialValues: AuthSignInParams = {
+    [SigninFormField.Email]: '',
+    [SigninFormField.Password]: '',
+  };
+  const formLabels: AuthSignInParams = {
+    [SigninFormField.Email]: 'Email Address',
+    [SigninFormField.Password]: 'Password',
+  };
+
+  const form = useFormik({
+    initialValues,
+    onSubmit,
+  });
 
   return (
-    <form className={classes.form} noValidate={true} onSubmit={handleSubmit}>
+    <form className={classes.form} onSubmit={form.handleSubmit}>
       <TextField
         className={classes.input}
         variant="outlined"
         margin="normal"
         required={true}
         fullWidth={true}
-        id="email"
-        label="Email Address"
-        name="email"
         autoComplete="email"
+        label={formLabels[SigninFormField.Email]}
+        id={SigninFormField.Email}
+        name={SigninFormField.Email}
+        value={form.values[SigninFormField.Email]}
+        onChange={form.handleChange}
       />
       <TextField
         className={classes.input}
+        type="password"
+        autoComplete="current-password"
         variant="outlined"
         margin="normal"
         required={true}
         fullWidth={true}
-        name="password"
-        label="Password"
-        type="password"
-        id="password"
-        autoComplete="current-password"
+        label={formLabels[SigninFormField.Password]}
+        id={SigninFormField.Password}
+        name={SigninFormField.Password}
+        value={form.values[SigninFormField.Password]}
+        onChange={form.handleChange}
       />
       <FormControlLabel
         control={<Checkbox value="remember" color="primary" />}
@@ -68,14 +84,6 @@ export function SigninForm({ registerPath, forgotPwPath, onSubmit }: SigninFormP
       >
         Sign In
       </Button>
-      <Grid container={true}>
-        <Grid item={true} xs={true}>
-          <Link to={forgotPwPath}>Forgot password?</Link>
-        </Grid>
-        <Grid item={true}>
-          <Link to={registerPath}>Don't have an account? Register</Link>
-        </Grid>
-      </Grid>
     </form>
   );
 }

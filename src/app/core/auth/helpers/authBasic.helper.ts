@@ -1,9 +1,10 @@
-import { AuthService } from '../../shared/models/auth.model';
+import { AuthService, AuthSignInParams } from '../models/auth.model';
 
 class BasicAuthHelper implements AuthService {
   isAuthenticated: boolean = false;
 
-  authenticate(cb: VoidFunction) {
+  authenticate(values: AuthSignInParams, cb: VoidFunction) {
+    console.log('authenticating signin :', values);
     this.isAuthenticated = true;
     setTimeout(cb, 300);
   }

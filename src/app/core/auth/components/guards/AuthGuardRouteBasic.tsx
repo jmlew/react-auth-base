@@ -1,13 +1,13 @@
 import React, { ComponentType } from 'react';
 
-import { authRouteConfig } from '../../../shared/constants';
+import { authRouteConfig } from '../../../../shared/constants';
 import { authBasicHelper } from '../../helpers';
-import { AuthRouteGuard, AuthGuardRouteProps } from '../../../shared/components/guards';
-import { AuthService } from '../../../shared/models/auth.model';
+import { AuthService } from '../../models/auth.model';
+import { AuthGuardRouteProps, AuthRouteGuard } from './AuthRouteGuard';
 
 /**
- * Auth route guard to redirect unauthenticated users to the sign in page using AWS
- * Cognito auth service.
+ * Auth route guard to redirect unauthenticated users to the sign in page using a basic
+ * Auth helper.
  */
 function withAuthService(
   WrappedComponent: ComponentType<AuthGuardRouteProps>,
@@ -23,4 +23,4 @@ function withAuthService(
   );
 }
 
-export const AuthGuardRouteCognito = withAuthService(AuthRouteGuard, authBasicHelper);
+export const AuthGuardRouteBasic = withAuthService(AuthRouteGuard, authBasicHelper);

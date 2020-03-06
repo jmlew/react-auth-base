@@ -2,7 +2,7 @@ import React from 'react';
 import { RouteComponentProps } from 'react-router-dom';
 
 import { Welcome } from '../components/Welcome';
-import { authBasicHelper } from '../../../core/helpers';
+import { authBasicHelper } from '../../../core/auth/helpers';
 import { authRouteConfig } from '../../../shared/constants';
 import { HomeIntro } from '../components/HomeIntro';
 

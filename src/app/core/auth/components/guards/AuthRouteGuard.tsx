@@ -2,7 +2,7 @@ import React from 'react';
 import { RouteComponentProps, Redirect, Route, RouteProps } from 'react-router-dom';
 
 import { AuthState } from '../../models/auth.model';
-import { withinErrorBoundary } from '../error';
+import { withinErrorBoundary } from '../../../../shared/components';
 
 /**
  * Route guard to redirect routes to a given path when the given authenticated flag is

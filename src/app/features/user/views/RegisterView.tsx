@@ -12,7 +12,7 @@ import { RouteComponentProps } from 'react-router-dom';
 import { IconMat } from '../../../shared/enums/icons.enum';
 import { authRouteConfig } from '../../../shared/constants';
 import { RegisterForm } from '../components';
-import { TitleAvatar } from '../../../shared/components/titles';
+import { TitleAvatar } from '../../../shared/components';
 
 const useStyles = makeStyles((theme: Theme) => ({
   root: {
