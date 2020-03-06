@@ -1,36 +1,46 @@
 import React from 'react';
-import { makeStyles, Button, TextField, Theme } from '@material-ui/core';
+import { makeStyles, Button, Theme } from '@material-ui/core';
+import { useFormik } from 'formik';
 
 import { uiThemeForm } from '../../../styles/theme/ui-theme';
+import { UserParams } from '../models/user.model';
+import { FormField } from '../../../shared/enums/form-fields.enum';
+import { PropStringMap } from '../../../shared/models/data-maps.model';
+import { getValidationSchemaObj } from '../../../shared/helpers';
+import { TextFieldInput } from '../../../shared/components/inputs';
 
 const useStyles = makeStyles((theme: Theme) => ({
   ...uiThemeForm(theme),
 }));
 
 interface ForgotPwFormProps {
-  onSubmit: () => void;
+  onSubmit: (values: Partial<UserParams>) => void;
 }
 
 export function ForgotPwForm({ onSubmit }: ForgotPwFormProps) {
   const classes = useStyles();
 
-  function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
-    onSubmit();
-    event.preventDefault();
-  }
+  const initialValues: Partial<UserParams> = {
+    [FormField.Email]: '',
+  };
+  const formLabels: PropStringMap = {
+    [FormField.Email]: 'Email Address',
+  };
+  const form = useFormik({
+    initialValues,
+    validationSchema: getValidationSchemaObj([FormField.Email]),
+    onSubmit,
+  });
 
   return (
-    <form className={classes.form} noValidate={true} onSubmit={handleSubmit}>
-      <TextField
-        className={classes.input}
-        variant="outlined"
-        margin="normal"
-        required={true}
-        fullWidth={true}
-        id="email"
-        label="Email Address"
-        name="email"
-        autoComplete="email"
+    <form className={classes.form} onSubmit={form.handleSubmit}>
+      <TextFieldInput
+        {...form.getFieldProps(FormField.Email)}
+        field={FormField.Email}
+        label={formLabels[FormField.Email]}
+        errors={form.errors}
+        touched={form.touched}
+        autoComplete={'email'}
       />
       <Button
         type="submit"

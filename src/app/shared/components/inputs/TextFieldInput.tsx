@@ -1,5 +1,6 @@
 import React from 'react';
 import { makeStyles, OutlinedTextFieldProps, TextField, Theme } from '@material-ui/core';
+import { FormikErrors, FormikTouched } from 'formik';
 
 import { uiThemeForm } from '../../../styles/theme/ui-theme';
 
@@ -9,8 +10,8 @@ const useStyles = makeStyles((theme: Theme) => ({
 
 interface TextFieldInputProps extends Partial<OutlinedTextFieldProps> {
   field: string;
-  errors: any;
-  touched: any;
+  errors: FormikErrors<any>;
+  touched: FormikTouched<any>;
 }
 
 export function TextFieldInput({ field, errors, touched, ...rest }: TextFieldInputProps) {
