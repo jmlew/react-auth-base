@@ -1,26 +1,26 @@
 import React from 'react';
 import { Redirect, Route, RouteComponentProps, RouteProps } from 'react-router-dom';
 
-import { AuthState } from '../../models/auth.model';
-import { withinErrorBoundary } from '../../../../shared/components';
+import { withinErrorBoundary } from '../error/ErrorBoundaryRoute';
 
 /**
- * Route guard to redirect routes to a given path when the given authenticated flag is
+ * Route guard to redirect routes to a given path when the given canActivate flag is
  * false.
  */
-export interface AuthGuardRouteProps extends AuthState, RouteProps {
+export interface RouteGuardProps extends RouteProps {
+  canActivate: boolean;
   redirectPath: string;
 }
 
-export function AuthRouteGuard({
-  isAuthenticated,
+export function RouteGuard({
+  canActivate,
   redirectPath,
   component: Component,
   ...rest
-}: AuthGuardRouteProps | any) {
+}: RouteGuardProps | any) {
   function authGuardRenderer(props: RouteComponentProps<any>) {
     const { location } = props;
-    return isAuthenticated ? (
+    return canActivate ? (
       withinErrorBoundary(Component, props)
     ) : (
       <Redirect

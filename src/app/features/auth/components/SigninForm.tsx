@@ -6,7 +6,7 @@ import { uiThemeForm } from '../../../styles/theme/ui-theme';
 import { AuthSignInParams } from '../../../core/auth/models/auth.model';
 import { TextFieldInput } from '../../../shared/components/inputs';
 import { FormField } from '../../../shared/enums/form-fields.enum';
-import { getValidationSchemaObj } from '../../../shared/helpers';
+import { getValidationSchema } from '../../../shared/helpers';
 import { PropStringMap } from '../../../shared/models/data-maps.model';
 
 const useStyles = makeStyles((theme: Theme) => ({
@@ -29,7 +29,7 @@ export function SigninForm({ onSubmit }: SigninFormProps) {
   };
   const form = useFormik({
     initialValues,
-    validationSchema: getValidationSchemaObj([FormField.Password, FormField.Email]),
+    validationSchema: getValidationSchema([FormField.Password, FormField.Email]),
     onSubmit,
   });
 

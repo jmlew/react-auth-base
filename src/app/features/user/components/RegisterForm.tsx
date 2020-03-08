@@ -7,7 +7,7 @@ import { uiThemeForm } from '../../../styles/theme/ui-theme';
 import { UserParams } from '../models/user.model';
 import { FormField } from '../../../shared/enums/form-fields.enum';
 import { PropStringMap } from '../../../shared/models/data-maps.model';
-import { getValidationSchemaObj } from '../../../shared/helpers';
+import { getValidationSchema } from '../../../shared/helpers';
 import { TextFieldInput } from '../../../shared/components/inputs';
 
 const useStyles = makeStyles((theme: Theme) => ({
@@ -36,7 +36,7 @@ export function RegisterForm({ signinPath, onSubmit }: RegisterFormProps) {
   };
   const form = useFormik({
     initialValues,
-    validationSchema: getValidationSchemaObj([
+    validationSchema: getValidationSchema([
       FormField.Password,
       FormField.Email,
       FormField.FirstName,
