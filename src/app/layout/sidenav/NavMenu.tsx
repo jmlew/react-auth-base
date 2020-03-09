@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 import { IconMat } from '../../shared/enums/icons.enum';
 import { RouteItem } from '../../shared/models/routes.model';
-import { appRouteConfig } from '../../shared/constants';
+import { appRouteConfig } from '../../shared/constants/routes';
 import { uiThemeGeneral } from '../../styles/theme/ui-theme';
 
 import NavListItem from './NavListItem';

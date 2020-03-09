@@ -11,7 +11,7 @@ import {
 } from '@material-ui/core';
 
 import { IconMat } from '../../shared/enums/icons.enum';
-import { authRouteConfig, userRouteConfig } from '../../shared/constants';
+import { authRouteConfig, userRouteConfig } from '../../shared/constants/routes';
 
 import ProfieMenu from './PofileMenu';
 import AuthMenu from './AuthMenu';

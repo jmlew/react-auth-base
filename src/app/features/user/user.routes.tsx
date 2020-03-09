@@ -2,7 +2,7 @@ import React, { Suspense } from 'react';
 import { Redirect, RouteComponentProps, Switch } from 'react-router-dom';
 
 import { ErrorBoundaryRoute, LoadingCircular } from '../../shared/components';
-import { userRouteConfig } from '../../shared/constants';
+import { userRouteConfig } from '../../shared/constants/routes';
 
 import * as fromViews from './views';
 

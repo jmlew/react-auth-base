@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { authRouteConfig } from '../../../shared/constants';
+import { authRouteConfig } from '../../../shared/constants/routes';
 import { RegisterForm } from '../components';
 import { UserParams } from '../models/user.model';
 

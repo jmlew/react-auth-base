@@ -3,7 +3,7 @@ import { makeStyles, Divider, Theme, Typography } from '@material-ui/core';
 
 import { uiThemeGeneral } from '../../../styles/theme/ui-theme';
 import { RouteItem } from '../../../shared/models/routes.model';
-import { appRouteConfig } from '../../../shared/constants';
+import { appRouteConfig } from '../../../shared/constants/routes';
 
 import { HomeIntroMenu } from './HomeIntroMenu';
 

@@ -1,5 +1,5 @@
-import { RouteConfig } from '../models/routes.model';
-import { IconMat } from '../enums/icons.enum';
+import { RouteConfig } from '../../models/routes.model';
+import { IconMat } from '../../enums/icons.enum';
 
 const basePath = '';
 

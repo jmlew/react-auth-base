@@ -2,7 +2,7 @@ import React, { lazy, Suspense } from 'react';
 import { Switch } from 'react-router-dom';
 
 import { ErrorBoundaryRoute, LoadingCircular } from '../shared/components';
-import { appRouteConfig } from '../shared/constants';
+import { appRouteConfig } from '../shared/constants/routes';
 import HomeView from '../features/home/views/HomeView';
 import AuthFeature from '../features/auth/auth.routes';
 import { AuthGuardRouteBasic } from '../core/auth/components/guards';

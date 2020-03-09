@@ -1,6 +1,6 @@
 export enum StorageType {
-  SESSION,
-  LOCAL,
+  Session,
+  Local,
 }
 
 /**
@@ -8,10 +8,7 @@ export enum StorageType {
  * @param type storage type
  */
 export const getStorage: any = (type: StorageType) => {
-  if (type === StorageType.SESSION) {
-    return window.sessionStorage;
-  }
-  return window.localStorage;
+  return type === StorageType.Session ? window.sessionStorage : window.localStorage;
 };
 
 /**
@@ -32,10 +29,7 @@ const setItem = (type: StorageType) => (key: string, value: any) => {
  */
 const getItem = (type: StorageType) => (key: string, defaultVal?: any) => {
   const val = getStorage(type).getItem(key);
-  if (!val || val === 'undefined') {
-    return defaultVal;
-  }
-  return JSON.parse(val);
+  return !val || val === 'undefined' ? defaultVal : JSON.parse(val);
 };
 
 /**
@@ -51,26 +45,26 @@ export type getItemType = (key: string, defaultVal?: any) => any;
 export type setItemType = (key: string, value: any) => void;
 export type removeItemType = (key: string) => void;
 
-export interface StorageAPI {
+export interface WebStorageAPI {
   get: getItemType;
   set: setItemType;
   remove: removeItemType;
 }
 
-export interface StorageService {
-  session: StorageAPI;
-  local: StorageAPI;
+export interface WebStorageService {
+  session: WebStorageAPI;
+  local: WebStorageAPI;
 }
 
-export const Storage: StorageService = {
+export const WebStorage: WebStorageService = {
   session: {
-    get: getItem(StorageType.SESSION),
-    set: setItem(StorageType.SESSION),
-    remove: removeItem(StorageType.SESSION),
+    get: getItem(StorageType.Session),
+    set: setItem(StorageType.Session),
+    remove: removeItem(StorageType.Session),
   },
   local: {
-    get: getItem(StorageType.LOCAL),
-    set: setItem(StorageType.LOCAL),
-    remove: removeItem(StorageType.LOCAL),
+    get: getItem(StorageType.Local),
+    set: setItem(StorageType.Local),
+    remove: removeItem(StorageType.Local),
   },
 };

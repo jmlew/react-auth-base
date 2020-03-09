@@ -11,13 +11,19 @@ export function Signin({}: SigninProps) {
   const history = useHistory();
   const location = useLocation();
   function handleFormSubmit(values: AuthSignInParams) {
-    const prevPath: string =
-      location.state &&
-      (location.state as any).from &&
-      ((location.state as any).from as any).pathname;
-    authBasicHelper.authenticate(values, () => {
-      history.replace(prevPath || '/');
-    });
+    authBasicHelper.signin(values).then(
+      (userId: number) => {
+        console.log('userId :', userId);
+        const prevPath: string =
+          location.state &&
+          (location.state as any).from &&
+          ((location.state as any).from as any).pathname;
+        history.replace(prevPath || '/');
+      },
+      (error: string) => {
+        console.log('error :', error);
+      }
+    );
   }
   return <SigninForm onSubmit={handleFormSubmit} />;
 }

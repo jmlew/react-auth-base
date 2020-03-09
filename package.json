@@ -18,6 +18,7 @@
   },
   "dependencies": {
     "@material-ui/core": "^4.9.5",
+    "@types/jsonwebtoken": "^8.3.8",
     "@types/yup": "^0.26.32",
     "axios": "^0.19.2",
     "formik": "^2.1.4",

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Redirect, RouteComponentProps, Switch } from 'react-router-dom';
 
-import { authRouteConfig } from '../../shared/constants';
+import { authRouteConfig } from '../../shared/constants/routes';
 import { ErrorBoundaryRoute } from '../../shared/components';
 
 import { SigninView, SignoutView } from './views';

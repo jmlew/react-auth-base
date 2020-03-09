@@ -22,10 +22,12 @@ export function SigninForm({ onSubmit }: SigninFormProps) {
   const initialValues: AuthSignInParams = {
     [FormField.Email]: '',
     [FormField.Password]: '',
+    [FormField.RememberLogin]: true,
   };
   const formLabels: PropStringMap = {
     [FormField.Email]: 'Email Address',
     [FormField.Password]: 'Password',
+    [FormField.RememberLogin]: 'Remember Me',
   };
   const form = useFormik({
     initialValues,
@@ -53,8 +55,15 @@ export function SigninForm({ onSubmit }: SigninFormProps) {
         autoComplete={'current-password'}
       />
       <FormControlLabel
-        control={<Checkbox value="remember" color="primary" />}
-        label="Remember me"
+        control={
+          <Checkbox
+            name={FormField.RememberLogin}
+            checked={form.values[FormField.RememberLogin]}
+            onChange={form.handleChange}
+            color="primary"
+          />
+        }
+        label={formLabels[FormField.RememberLogin]}
       />
       <Button
         type="submit"

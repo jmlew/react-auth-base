@@ -4,7 +4,7 @@ import { RouteComponentProps } from 'react-router-dom';
 
 import { IconMat } from '../../../shared/enums/icons.enum';
 import { TitleAvatar } from '../../../shared/components';
-import { userRouteConfig } from '../../../shared/constants';
+import { userRouteConfig } from '../../../shared/constants/routes';
 import { Signin } from '../containers';
 import { SigninLinks } from '../components';
 

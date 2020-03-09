@@ -6,7 +6,7 @@ import AppHeader from '../layout/header/AppHeader';
 import AppFooter from '../layout/footer/AppFooter';
 import AppSidenav from '../layout/sidenav/AppSidenav';
 import { authBasicHelper } from '../core/auth/helpers';
-import { authRouteConfig } from '../shared/constants';
+import { authRouteConfig } from '../shared/constants/routes';
 
 import AppRoutes from './app.routes';
 
@@ -30,7 +30,7 @@ export default function AppShell() {
   const [isSidenavOpen, setSidenavOpen] = useState(false);
   const history = useHistory();
   const classes = useStyles();
-  const isAuthenticated = authBasicHelper.isAuthenticated;
+  const isAuthenticated: boolean = authBasicHelper.isAuthenticated();
 
   function handleToggleSidenav(event: MouseEvent) {
     setSidenavOpen(!isSidenavOpen);

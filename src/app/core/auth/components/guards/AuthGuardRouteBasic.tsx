@@ -1,12 +1,11 @@
 import React, { ComponentType } from 'react';
 
-import { authRouteConfig } from '../../../../shared/constants';
-import { authBasicHelper } from '../../helpers';
+import { authRouteConfig } from '../../../../shared/constants/routes';
+import { authBasicHelper, BasicAuthHelper } from '../../helpers';
 import { AuthService } from '../../models/auth.model';
-
 import {
-  RouteGuardProps,
   RouteGuard,
+  RouteGuardProps,
 } from '../../../../shared/components/guards/RouteGuard';
 
 /**
@@ -15,12 +14,12 @@ import {
  */
 function withAuthService(
   WrappedComponent: ComponentType<RouteGuardProps>,
-  auth: AuthService
+  auth: BasicAuthHelper
 ) {
   const signinPath = `${authRouteConfig.signin.basePath}${authRouteConfig.signin.path}`;
   return (props: any) => (
     <WrappedComponent
-      canActivate={auth.isAuthenticated}
+      canActivate={auth.isAuthenticated()}
       redirectPath={signinPath}
       {...props}
     />

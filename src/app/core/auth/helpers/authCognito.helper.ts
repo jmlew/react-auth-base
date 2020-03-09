@@ -1,17 +1,23 @@
 import { AuthService, AuthSignInParams } from '../models/auth.model';
 
-class CognitoAuthHelper implements AuthService {
-  isAuthenticated: boolean = false;
+export class CognitoAuthHelper implements AuthService {
+  private isAuth: boolean = false;
 
-  authenticate(values: AuthSignInParams, cb: VoidFunction) {
-    console.log('authenticating signin :', values);
-    this.isAuthenticated = true;
-    setTimeout(cb, 300);
+  signin(params: AuthSignInParams): Promise<number | undefined> {
+    this.isAuth = true;
+    return new Promise(() => 2);
   }
 
-  signout(cb: VoidFunction) {
-    this.isAuthenticated = false;
-    setTimeout(cb, 300);
+  signout(resolve: VoidFunction): Promise<void> {
+    this.isAuth = false;
+    return new Promise(resolve);
+  }
+
+  /**
+   * TODO: remove in preference to call to the API for auth status.
+   */
+  isAuthenticated(): boolean {
+    return this.isAuth;
   }
 }
 

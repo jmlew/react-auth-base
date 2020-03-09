@@ -1,8 +1,7 @@
 import React, { ComponentType } from 'react';
 
-import { authRouteConfig } from '../../../../shared/constants';
-import { authBasicHelper } from '../../helpers';
-import { AuthService } from '../../models/auth.model';
+import { authRouteConfig } from '../../../../shared/constants/routes';
+import { authCognitoHelper, CognitoAuthHelper } from '../../helpers';
 import {
   RouteGuard,
   RouteGuardProps,
@@ -14,16 +13,16 @@ import {
  */
 function withAuthService(
   WrappedComponent: ComponentType<RouteGuardProps>,
-  auth: AuthService
+  auth: CognitoAuthHelper
 ) {
   const signinPath = `${authRouteConfig.signin.basePath}${authRouteConfig.signin.path}`;
   return (props: any) => (
     <WrappedComponent
-      canActivate={auth.isAuthenticated}
+      canActivate={auth.isAuthenticated()}
       redirectPath={signinPath}
       {...props}
     />
   );
 }
 
-export const AuthGuardRouteCognito = withAuthService(RouteGuard, authBasicHelper);
+export const AuthGuardRouteCognito = withAuthService(RouteGuard, authCognitoHelper);
