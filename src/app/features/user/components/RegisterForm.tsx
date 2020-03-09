@@ -25,12 +25,14 @@ export function RegisterForm({ signinPath, onSubmit }: RegisterFormProps) {
   const initialValues: UserParams = {
     [FormField.Email]: '',
     [FormField.Password]: '',
+    [FormField.PasswordConfirm]: '',
     [FormField.FirstName]: '',
     [FormField.LastName]: '',
   };
   const formLabels: PropStringMap = {
     [FormField.Email]: 'Email Address',
     [FormField.Password]: 'Password',
+    [FormField.PasswordConfirm]: 'Confirm Password',
     [FormField.FirstName]: 'First Name',
     [FormField.LastName]: 'Last Name',
   };
@@ -38,6 +40,7 @@ export function RegisterForm({ signinPath, onSubmit }: RegisterFormProps) {
     initialValues,
     validationSchema: getValidationSchema([
       FormField.Password,
+      FormField.PasswordConfirm,
       FormField.Email,
       FormField.FirstName,
       FormField.LastName,
@@ -86,7 +89,16 @@ export function RegisterForm({ signinPath, onSubmit }: RegisterFormProps) {
             errors={form.errors}
             touched={form.touched}
             type={'password'}
-            autoComplete={'current-password'}
+          />
+        </Grid>
+        <Grid item={true} xs={12}>
+          <TextFieldInput
+            {...form.getFieldProps(FormField.PasswordConfirm)}
+            field={FormField.PasswordConfirm}
+            label={formLabels[FormField.PasswordConfirm]}
+            errors={form.errors}
+            touched={form.touched}
+            type={'password'}
           />
         </Grid>
       </Grid>
