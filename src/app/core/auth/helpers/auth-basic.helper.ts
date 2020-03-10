@@ -7,11 +7,12 @@ import {
   getBearerToken,
   getDecodedJwtToken,
   getJwtToken,
+  isTokenExpired,
   storeJwtToken,
 } from '../../../shared/utils';
 
 export class BasicAuthHelper implements AuthService {
-  async signin(params: AuthSignInParams): Promise<number> {
+  async signin(params: AuthSignInParams, updateAuth: VoidFunction): Promise<number> {
     try {
       // Returns the user ID from the server.
       const response: AxiosResponse<number> = await axios.post(
@@ -20,6 +21,10 @@ export class BasicAuthHelper implements AuthService {
       );
       // Store the bearer token from the reponse headers to web storage.
       this.storeBearerToken(response.headers, params.remember);
+
+      // Update global auth state.
+      updateAuth();
+
       // Return the user ID.
       return response.data;
     } catch (error) {
@@ -27,17 +32,28 @@ export class BasicAuthHelper implements AuthService {
     }
   }
 
-  signout(): Promise<void> {
+  signout(updateAuth: VoidFunction): Promise<void> {
     clearJwtToken();
+
+    // Update global auth state.
+    updateAuth();
     return Promise.resolve();
   }
 
   isAuthenticated(): boolean {
-    const tokenData = this.getAuthTokenPayload();
-    return tokenData != null;
+    const token = this.getAuthTokenData();
+    if (!token) {
+      return false;
+    }
+
+    // TODO: surface message informng user as to session expiration.
+    const { payload } = token;
+    const isExpired: boolean = isTokenExpired(payload);
+    console.log('isExpired :', isExpired);
+    return !isExpired;
   }
 
-  private getAuthTokenPayload(): any {
+  private getAuthTokenData(): any {
     const token: string = getJwtToken();
     return token ? getDecodedJwtToken(token) : null;
   }

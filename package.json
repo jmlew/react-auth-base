@@ -4,8 +4,9 @@
   "private": true,
   "scripts": {
     "------ SERVE ------": "",
-    "start": "react-scripts start",
-    "mockapi": "json-server mockapi/router.js --port 8080 --delay 500 --routes mockapi/rewriter.json --middlewares mockapi/middleware.js",
+    "start": "npm run serve & npm run serve:mockapi",
+    "serve": "react-scripts start",
+    "serve:mockapi": "json-server mockapi/router.js --port 8080 --delay 500 --routes mockapi/rewriter.json --middlewares mockapi/middleware.js",
     "------ BUILD ------": "",
     "build": "react-scripts build",
     "------ TEST -------": "",

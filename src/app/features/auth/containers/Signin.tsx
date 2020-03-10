@@ -13,15 +13,15 @@ export function Signin({}: SigninProps) {
   const location = useLocation();
   const { updateAuth } = useAuth();
   function handleFormSubmit(values: AuthSignInParams) {
-    authBasicHelper.signin(values).then(
+    authBasicHelper.signin(values, updateAuth).then(
       (userId: number) => {
         console.log('userId :', userId);
+        // updateAuth();
         const prevPath: string =
           location.state &&
           (location.state as any).from &&
           ((location.state as any).from as any).pathname;
         history.replace(prevPath || '/');
-        updateAuth();
       },
       () => {
         console.log('sign in error');

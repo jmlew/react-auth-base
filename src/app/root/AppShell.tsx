@@ -38,10 +38,9 @@ export default function AppShell() {
   }
 
   function handleSignout() {
-    authBasicHelper.signout().then(() => {
+    authBasicHelper.signout(updateAuth).then(() => {
       const signoutPath = `${authRouteConfig.signout.basePath}${authRouteConfig.signout.path}`;
       history.push(signoutPath);
-      updateAuth();
     });
   }
 

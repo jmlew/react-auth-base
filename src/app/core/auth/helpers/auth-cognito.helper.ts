@@ -4,13 +4,15 @@ import { AuthService, AuthSignInParams } from '../models/auth.model';
 export class CognitoAuthHelper implements AuthService {
   private isAuth: boolean = false;
 
-  async signin(params: AuthSignInParams): Promise<number> {
+  async signin(params: AuthSignInParams, updateAuth: VoidFunction): Promise<number> {
     this.isAuth = true;
+    updateAuth();
     return new Promise(() => 2);
   }
 
-  signout(): Promise<void> {
+  signout(updateAuth: VoidFunction): Promise<void> {
     this.isAuth = false;
+    updateAuth();
     return Promise.resolve();
   }
 

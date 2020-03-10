@@ -9,7 +9,7 @@ export interface AuthState {
 }
 
 export interface AuthService {
-  signin: (params: AuthSignInParams) => Promise<number>;
-  signout: () => Promise<void>;
+  signin: (params: AuthSignInParams, updateAuth: VoidFunction) => Promise<number>;
+  signout: (updateAuth: VoidFunction) => Promise<void>;
   isAuthenticated: () => boolean;
 }

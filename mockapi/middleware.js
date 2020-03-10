@@ -1,7 +1,7 @@
 const jwt = require('jsonwebtoken');
 const userdb = require('./data/users.json');
 const SECRET_KEY = '123456789';
-const expiresIn = '1h';
+const expiresIn = '5m';
 
 const ApiMethod = {
   Post: 'POST',

@@ -1,6 +1,7 @@
 import jwt from 'jsonwebtoken';
 
 import { WebStorage } from './web-storage.util';
+import { isSameOrBeforeNow } from './date.util';
 
 const jwtTokenKey = 'jwt-token';
 
@@ -35,4 +36,8 @@ export function getJwtToken(): string {
 
 export function getDecodedJwtToken(token: string): any {
   return jwt.decode(token, { complete: true });
+}
+
+export function isTokenExpired(payload: any): boolean {
+  return payload.exp ? isSameOrBeforeNow(payload.exp) : false;
 }
