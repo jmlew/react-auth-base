@@ -1,6 +1,7 @@
 import axios, { AxiosRequestConfig, AxiosResponse } from 'axios';
 
-import { createBearerToken, getJwtToken, isString } from '../utils';
+import { createBearerToken, getJwtToken, isString } from '../../../shared/utils';
+import { serverApiUrl } from '../constants';
 
 interface InterceptorsHandler {
   onResponseError: (error: any) => void;
@@ -74,9 +75,6 @@ function addServerTimeout(config: AxiosRequestConfig): AxiosRequestConfig {
 }
 
 function prependEnvironmentServerApiPath(config: AxiosRequestConfig): AxiosRequestConfig {
-  const envServerApiUrl: string | undefined = process.env.REACT_APP_SERVER_API_URL;
-  if (envServerApiUrl) {
-    config.url = `${envServerApiUrl}${config.url}`;
-  }
+  config.url = `${serverApiUrl}${config.url}`;
   return config;
 }

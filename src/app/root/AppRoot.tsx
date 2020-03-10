@@ -4,7 +4,7 @@ import CssBaseline from '@material-ui/core/CssBaseline';
 import { MuiThemeProvider } from '@material-ui/core/styles';
 
 import { muiTheme } from '../styles/theme/mui-theme';
-import { iniAxiosInterceptors } from '../shared/interceptors';
+import { iniAxiosInterceptors } from '../core/api/interceptors';
 import { AuthContext } from '../core/auth/context';
 import { authBasicHelper } from '../core/auth/helpers';
 import { ErrorMessageAlert } from '../shared/components/error';
