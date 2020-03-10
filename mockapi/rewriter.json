@@ -1,4 +1,5 @@
 {
-    "/api/*": "/$1",
-    "/:resource/:id/view": "/:resource/:id"
+  "/api/*": "/$1",
+  "/:resource/:id/view": "/:resource/:id",
+  "/register": "/users"
 }

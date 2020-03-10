@@ -30,13 +30,11 @@ module.exports = (req, res, next) => {
     }
   }
 
-  // Registration.
-  if (method === ApiMethod.Post && url.includes('register')) {
-    addUser(body);
-    const { email, firstname, lastname } = body;
-    res.status(200).json({ email, firstname, lastname });
-    return;
-  }
+  // Registration (rewritten from 'register' route).
+  /* if (method === ApiMethod.Post && url.includes('users')) {
+    const { password, ...toSend } = body;
+    return res.status(200).json(toSend);
+  } */
 
   if (isPrivateRoute(url)) {
     if (
@@ -45,8 +43,7 @@ module.exports = (req, res, next) => {
     ) {
       const status = 401;
       const message = 'Error in authorization format';
-      res.status(status).json({ status, message });
-      return;
+      return res.status(status).json({ status, message });
     }
   }
 
