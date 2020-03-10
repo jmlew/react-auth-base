@@ -10,9 +10,7 @@ import { useAuth } from '../../context';
  * Auth helper.
  */
 export function AuthGuardRouteBasic(props: RouteProps) {
-  const isAuthenticated = useAuth();
+  const { isAuth } = useAuth();
   const signinPath = `${authRouteConfig.signin.basePath}${authRouteConfig.signin.path}`;
-  return (
-    <RouteGuard redirectPath={signinPath} canActivate={isAuthenticated} {...props} />
-  );
+  return <RouteGuard redirectPath={signinPath} canActivate={isAuth} {...props} />;
 }

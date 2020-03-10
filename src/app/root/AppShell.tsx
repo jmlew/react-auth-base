@@ -1,14 +1,12 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
-import { makeStyles, Container, Snackbar, Theme } from '@material-ui/core';
-import MuiAlert from '@material-ui/lab/Alert';
+import { makeStyles, Container, Theme } from '@material-ui/core';
 
 import AppHeader from '../layout/header/AppHeader';
 import AppFooter from '../layout/footer/AppFooter';
 import AppSidenav from '../layout/sidenav/AppSidenav';
 import { authBasicHelper } from '../core/auth/helpers';
 import { authRouteConfig } from '../shared/constants/routes';
-// import { usePrevious } from '../shared/helpers';
 import { useAuth } from '../core/auth/context';
 
 import AppRoutes from './app.routes';
@@ -29,30 +27,14 @@ const useStyles = makeStyles((theme: Theme) => ({
   },
 }));
 
-interface AppShellProps {
-  errorMessage: string;
-}
-export default function AppShell(props: AppShellProps) {
-  const { errorMessage } = props;
+export default function AppShell() {
   const [isSidenavOpen, openSidenav] = useState(false);
-  const [isErrorShown, showError] = useState(errorMessage !== '');
   const { isAuth, updateAuth } = useAuth();
-  // const prevProps: AppShellProps | undefined = usePrevious(props);
-  useEffect(() => {
-    if (errorMessage !== '') {
-      showError(true);
-    }
-  }, [errorMessage]);
-
   const history = useHistory();
   const classes = useStyles();
 
   function handleToggleSidenav() {
     openSidenav(!isSidenavOpen);
-  }
-
-  function handleHideError() {
-    showError(false);
   }
 
   function handleSignout() {
@@ -62,6 +44,7 @@ export default function AppShell(props: AppShellProps) {
       updateAuth();
     });
   }
+
   return (
     <div className={classes.root}>
       <AppHeader
@@ -76,16 +59,6 @@ export default function AppShell(props: AppShellProps) {
       <footer className={classes.footer}>
         <AppFooter />
       </footer>
-      <Snackbar open={isErrorShown} autoHideDuration={4000} onClose={handleHideError}>
-        <MuiAlert
-          onClose={handleHideError}
-          elevation={6}
-          variant="filled"
-          severity="error"
-        >
-          {errorMessage}
-        </MuiAlert>
-      </Snackbar>
     </div>
   );
 }

@@ -1,21 +1,19 @@
 import { AuthService, AuthSignInParams } from '../models/auth.model';
 
+// TODO: add AWS Cognito functionality.
 export class CognitoAuthHelper implements AuthService {
   private isAuth: boolean = false;
 
-  signin(params: AuthSignInParams): Promise<number | undefined> {
+  async signin(params: AuthSignInParams): Promise<number> {
     this.isAuth = true;
     return new Promise(() => 2);
   }
 
-  signout(resolve: VoidFunction): Promise<void> {
+  signout(): Promise<void> {
     this.isAuth = false;
-    return new Promise(resolve);
+    return Promise.resolve();
   }
 
-  /**
-   * TODO: remove in preference to call to the API for auth status.
-   */
   isAuthenticated(): boolean {
     return this.isAuth;
   }

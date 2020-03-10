@@ -7,20 +7,25 @@ import { muiTheme } from '../styles/theme/mui-theme';
 import { iniAxiosInterceptors } from '../shared/interceptors';
 import { AuthContext } from '../core/auth/context';
 import { authBasicHelper } from '../core/auth/helpers';
+import { ErrorMessageAlert } from '../shared/components/error';
 
 import './styles.scss';
 import AppShell from './AppShell';
 
 function AppRoot() {
-  const [errorMessage, setRequestMessage] = useState('');
+  const [errorMessage, setErrorMessage] = useState('');
   const [isAuth, setIsAuth] = useState(false);
   useEffect(updateAuth, []);
 
   // Setup interceptors and state initialisation.
   iniAxiosInterceptors({
-    onResponseError: (error: string) => setRequestMessage(error),
-    onRequestError: (error: string) => setRequestMessage(error),
+    onResponseError: (error: string) => setErrorMessage(error),
+    onRequestError: (error: string) => setErrorMessage(error),
   });
+
+  function handleCloseError() {
+    setErrorMessage('');
+  }
 
   // Update global reference to authentication state.
   function updateAuth() {
@@ -32,7 +37,8 @@ function AppRoot() {
       <CssBaseline />
       <BrowserRouter>
         <AuthContext.Provider value={{ isAuth, updateAuth }}>
-          <AppShell errorMessage={errorMessage} />
+          <AppShell />
+          <ErrorMessageAlert errorMessage={errorMessage} onClose={handleCloseError} />
         </AuthContext.Provider>
       </BrowserRouter>
     </MuiThemeProvider>
