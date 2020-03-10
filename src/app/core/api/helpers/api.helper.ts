@@ -10,9 +10,11 @@ function getEndpoint(endpoint: ApiEndpoint): string {
 
 export class ApiHelper {
   static authenticate(params: AuthSignInParams): Promise<AxiosResponse<number>> {
-    return axios.post(getEndpoint(ApiEndpoint.Authenticate), params);
+    const endpoint: string = getEndpoint(ApiEndpoint.Authenticate);
+    return axios.post(endpoint, params);
   }
   static registerUser(params: UserParams): Promise<AxiosResponse<number>> {
-    return axios.post(getEndpoint(ApiEndpoint.Register), params);
+    const endpoint: string = getEndpoint(ApiEndpoint.Register);
+    return axios.post(endpoint, params);
   }
 }

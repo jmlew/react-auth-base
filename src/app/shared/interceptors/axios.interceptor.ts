@@ -23,7 +23,8 @@ export function iniAxiosInterceptors(handlers: InterceptorsHandler) {
 
 function getErrorMessage(error: any): string {
   if (error.response) {
-    const message: string | any = error.response.data.message;
+    const message: string | any =
+      error.response.data?.message || error.response.statusText;
     return isString(message) ? message : message.toString();
   } else if (error.request) {
     const request: XMLHttpRequest = error.request;

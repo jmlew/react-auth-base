@@ -30,6 +30,14 @@ module.exports = (req, res, next) => {
     }
   }
 
+  // Registration.
+  if (method === ApiMethod.Post && url.includes('register')) {
+    addUser(body);
+    const { email, firstname, lastname } = body;
+    res.status(200).json({ email, firstname, lastname });
+    return;
+  }
+
   if (isPrivateRoute(url)) {
     if (
       headers.authorization === undefined ||
@@ -74,4 +82,8 @@ function isAuthenticated({ email, password }) {
 function getUser(email) {
   const user = userdb.users.find((user) => user.email === email);
   return { ...user };
+}
+
+function addUser(user) {
+  userdb.users = [...userdb.users, user];
 }

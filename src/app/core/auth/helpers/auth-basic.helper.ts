@@ -47,7 +47,6 @@ export class BasicAuthHelper implements AuthService {
     // TODO: surface message informng user as to session expiration.
     const { payload } = token;
     const isExpired: boolean = isTokenExpired(payload);
-    console.log('isExpired :', isExpired);
     return !isExpired;
   }
 

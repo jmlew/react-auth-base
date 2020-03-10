@@ -1,4 +1,4 @@
 export enum ApiEndpoint {
-  Authenticate = 'api/authenticate',
-  Register = 'api/register',
+  Authenticate = 'authenticate',
+  Register = 'register',
 }
