@@ -1,0 +1,32 @@
+# Uses multi-stage builds
+# https://docs.docker.com/develop/develop-images/multistage-build/
+
+# BUILD
+# base image https://hub.docker.com/_/node/
+FROM node:13.3.0-alpine AS builder
+WORKDIR /app
+# add `/app/node_modules/.bin` to $PATH
+ENV PATH /app/node_modules/.bin:$PATH
+# install and cache app dependencies
+COPY package.json /app/package.json
+RUN npm install
+RUN npm install react-scripts@3.0.1 -g
+# stage /app
+COPY . /app
+# create /app/build with prod ready UI bundles
+# (/build is default dist dir for React)
+RUN npm run build
+
+# PRODUCTION
+# base image https://hub.docker.com/_/nginx
+FROM nginx:1.17-alpine
+# copy into serving dir
+COPY --from=builder /app/build /usr/share/nginx/html
+# remove default nginx virtual host conf
+RUN rm /etc/nginx/conf.d/default.conf
+# copy in new virtual host conf with SPA friendly redirect
+COPY nginx.conf /etc/nginx/conf.d
+# expose app on port 80
+EXPOSE 80
+# start server
+CMD ["nginx", "-g", "daemon off;"]
