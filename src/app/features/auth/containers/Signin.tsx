@@ -20,8 +20,8 @@ export function Signin({}: SigninProps) {
           ((location.state as any).from as any).pathname;
         history.replace(prevPath || '/');
       },
-      (error: string) => {
-        console.log('error :', error);
+      () => {
+        console.log('sign in error');
       }
     );
   }

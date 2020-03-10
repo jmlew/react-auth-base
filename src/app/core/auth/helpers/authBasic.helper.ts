@@ -15,7 +15,7 @@ export class BasicAuthHelper implements AuthService {
     try {
       // Returns the user ID from the server.
       const response: AxiosResponse<number> = await axios.post(
-        process.env.REACT_APP_SERVER_API_URL + AuthApiEndpoint.Authenticate,
+        AuthApiEndpoint.Authenticate,
         params
       );
       // Store the bearer token from the reponse headers to web storage.
@@ -26,10 +26,7 @@ export class BasicAuthHelper implements AuthService {
       // Return the user ID.
       return response.data;
     } catch (error) {
-      // Return error message.
-      return error.response
-        ? Promise.reject(error.response.data.message)
-        : Promise.reject('Signin failed');
+      return Promise.reject();
     }
   }
 

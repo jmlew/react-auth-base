@@ -1,6 +1,7 @@
 import React, { useState, MouseEvent } from 'react';
 import { useHistory } from 'react-router-dom';
-import { makeStyles, Container, Theme } from '@material-ui/core';
+import { makeStyles, Container, Snackbar, Theme } from '@material-ui/core';
+import MuiAlert from '@material-ui/lab/Alert';
 
 import AppHeader from '../layout/header/AppHeader';
 import AppFooter from '../layout/footer/AppFooter';
@@ -26,7 +27,11 @@ const useStyles = makeStyles((theme: Theme) => ({
   },
 }));
 
-export default function AppShell() {
+interface AppShellProps {
+  errorMessage: string;
+  onHideError: () => void;
+}
+export default function AppShell({ errorMessage, onHideError }: AppShellProps) {
   const [isSidenavOpen, setSidenavOpen] = useState(false);
   const history = useHistory();
   const classes = useStyles();
@@ -57,6 +62,11 @@ export default function AppShell() {
       <footer className={classes.footer}>
         <AppFooter />
       </footer>
+      <Snackbar open={errorMessage !== ''} autoHideDuration={4000} onClose={onHideError}>
+        <MuiAlert onClose={onHideError} elevation={6} variant="filled" severity="error">
+          {errorMessage}
+        </MuiAlert>
+      </Snackbar>
     </div>
   );
 }

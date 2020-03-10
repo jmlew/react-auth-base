@@ -8,6 +8,10 @@ export function getBearerToken(authHeader: string): string {
   return authHeader.slice(7, authHeader.length);
 }
 
+export function createBearerToken(jwtToken: string): string {
+  return `Bearer ${jwtToken}`;
+}
+
 export function storeJwtToken(bearerToken: string, useSession?: boolean) {
   if (useSession) {
     WebStorage.session.set(jwtTokenKey, bearerToken);
