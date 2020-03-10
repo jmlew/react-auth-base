@@ -33,6 +33,6 @@ export function getJwtToken(): string {
   return WebStorage.local.get(jwtTokenKey) || WebStorage.session.get(jwtTokenKey);
 }
 
-export function getDecodedJwtToken(token: string) {
+export function getDecodedJwtToken(token: string): any {
   return jwt.decode(token, { complete: true });
 }

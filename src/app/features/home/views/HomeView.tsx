@@ -2,14 +2,14 @@ import React from 'react';
 import { RouteComponentProps } from 'react-router-dom';
 
 import { Welcome } from '../components/Welcome';
-import { authBasicHelper } from '../../../core/auth/helpers';
 import { authRouteConfig } from '../../../shared/constants/routes';
 import { HomeIntro } from '../components/HomeIntro';
+import { useAuth } from '../../../core/auth/context';
 
 interface HomeViewProps extends RouteComponentProps {}
 
 export default function HomeView({}: HomeViewProps) {
-  const isAuthenticated: boolean = authBasicHelper.isAuthenticated();
+  const { isAuth } = useAuth();
   const signinPath = `${authRouteConfig.signin.basePath}${authRouteConfig.signin.path}`;
-  return isAuthenticated ? <HomeIntro /> : <Welcome signinPath={signinPath} />;
+  return isAuth ? <HomeIntro /> : <Welcome signinPath={signinPath} />;
 }

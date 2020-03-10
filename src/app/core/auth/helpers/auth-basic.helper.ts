@@ -19,10 +19,7 @@ export class BasicAuthHelper implements AuthService {
         params
       );
       // Store the bearer token from the reponse headers to web storage.
-      const authHeader: string = response.headers && response.headers.authorization;
-      if (authHeader) {
-        this.storeBearerToken(authHeader, params.remember);
-      }
+      this.storeBearerToken(response.headers, params.remember);
       // Return the user ID.
       return response.data;
     } catch (error) {
@@ -30,29 +27,29 @@ export class BasicAuthHelper implements AuthService {
     }
   }
 
-  private storeBearerToken(authHeader: string, isRemember?: boolean) {
-    const bearerToken: string = getBearerToken(authHeader);
-    if (bearerToken) {
-      storeJwtToken(bearerToken, !isRemember);
-    }
-  }
-
-  signout(resolve: VoidFunction): Promise<void> {
+  signout(): Promise<void> {
     clearJwtToken();
-    return new Promise(resolve);
+    return Promise.resolve();
   }
 
-  /**
-   * TODO: Add this flag to Context API and pass through app.
-   */
   isAuthenticated(): boolean {
+    const tokenData = this.getAuthTokenPayload();
+    return tokenData != null;
+  }
+
+  private getAuthTokenPayload(): any {
     const token: string = getJwtToken();
-    if (token) {
-      const tokenData = getDecodedJwtToken(token);
-      console.log('tokenData :', tokenData);
-      return true;
+    return token ? getDecodedJwtToken(token) : null;
+  }
+
+  private storeBearerToken(headers: any, isRemember?: boolean) {
+    const authHeader: string = headers && headers.authorization;
+    if (authHeader) {
+      const bearerToken: string = getBearerToken(authHeader);
+      if (bearerToken) {
+        storeJwtToken(bearerToken, !isRemember);
+      }
     }
-    return false;
   }
 }
 

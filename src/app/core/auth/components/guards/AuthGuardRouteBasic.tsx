@@ -1,29 +1,18 @@
-import React, { ComponentType } from 'react';
+import React from 'react';
+import { RouteProps } from 'react-router-dom';
 
 import { authRouteConfig } from '../../../../shared/constants/routes';
-import { authBasicHelper, BasicAuthHelper } from '../../helpers';
-import { AuthService } from '../../models/auth.model';
-import {
-  RouteGuard,
-  RouteGuardProps,
-} from '../../../../shared/components/guards/RouteGuard';
+import { RouteGuard } from '../../../../shared/components/guards';
+import { useAuth } from '../../context';
 
 /**
  * Auth route guard to redirect unauthenticated users to the sign in page using a basic
  * Auth helper.
  */
-function withAuthService(
-  WrappedComponent: ComponentType<RouteGuardProps>,
-  auth: BasicAuthHelper
-) {
+export function AuthGuardRouteBasic(props: RouteProps) {
+  const isAuthenticated = useAuth();
   const signinPath = `${authRouteConfig.signin.basePath}${authRouteConfig.signin.path}`;
-  return (props: any) => (
-    <WrappedComponent
-      canActivate={auth.isAuthenticated()}
-      redirectPath={signinPath}
-      {...props}
-    />
+  return (
+    <RouteGuard redirectPath={signinPath} canActivate={isAuthenticated} {...props} />
   );
 }
-
-export const AuthGuardRouteBasic = withAuthService(RouteGuard, authBasicHelper);

@@ -1,2 +1,2 @@
-export * from './authBasic.helper';
-export * from './authCognito.helper';
+export * from './auth-basic.helper';
+export * from './auth-cognito.helper';

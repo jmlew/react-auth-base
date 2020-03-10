@@ -35,13 +35,13 @@ const useStyles = makeStyles((theme: Theme) =>
 );
 
 interface AppHeaderProps {
-  isAuthenticated: boolean;
+  isAuth: boolean;
   onSignout: () => void;
   onToggleSidenav: (event: MouseEvent) => void;
 }
 
 export default function AppHeader({
-  isAuthenticated,
+  isAuth,
   onToggleSidenav,
   onSignout,
 }: AppHeaderProps) {
@@ -54,7 +54,7 @@ export default function AppHeader({
   return (
     <AppBar position="static">
       <Toolbar>
-        {isAuthenticated ? (
+        {isAuth ? (
           <IconButton
             className={classes.leftButtons}
             color="inherit"
@@ -69,7 +69,7 @@ export default function AppHeader({
           <Typography variant="h6">Authenticator App</Typography>
         </div>
         <div className={classes.rightButtons}>
-          {isAuthenticated ? (
+          {isAuth ? (
             <ProfieMenu onSignout={onSignout} accountPath={accountPath} />
           ) : (
             <AuthMenu signinPath={signinPath} registerPath={registerPath} />

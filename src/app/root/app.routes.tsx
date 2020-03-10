@@ -3,11 +3,9 @@ import { Switch } from 'react-router-dom';
 
 import { ErrorBoundaryRoute, LoadingCircular } from '../shared/components';
 import { appRouteConfig } from '../shared/constants/routes';
+import { AuthGuardRouteBasic } from '../core/auth/components/guards';
 import HomeView from '../features/home/views/HomeView';
 import AuthFeature from '../features/auth/auth.routes';
-import { AuthGuardRouteBasic } from '../core/auth/components/guards';
-
-// Non lazy-loaded features.
 
 // Lazy-loaded features.
 const UserFeature = lazy(() => import('../features/user/user.routes'));

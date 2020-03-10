@@ -1,16 +1,20 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { BrowserRouter } from 'react-router-dom';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import { MuiThemeProvider } from '@material-ui/core/styles';
 
 import { muiTheme } from '../styles/theme/mui-theme';
 import { iniAxiosInterceptors } from '../shared/interceptors';
+import { AuthContext } from '../core/auth/context';
+import { authBasicHelper } from '../core/auth/helpers';
 
 import './styles.scss';
 import AppShell from './AppShell';
 
 function AppRoot() {
   const [errorMessage, setRequestMessage] = useState('');
+  const [isAuth, setIsAuth] = useState(false);
+  useEffect(updateAuth, []);
 
   // Setup interceptors and state initialisation.
   iniAxiosInterceptors({
@@ -18,15 +22,18 @@ function AppRoot() {
     onRequestError: (error: string) => setRequestMessage(error),
   });
 
-  function handleHideError() {
-    setRequestMessage('');
+  // Update global reference to authentication state.
+  function updateAuth() {
+    setIsAuth(authBasicHelper.isAuthenticated());
   }
 
   return (
     <MuiThemeProvider theme={muiTheme}>
       <CssBaseline />
       <BrowserRouter>
-        <AppShell errorMessage={errorMessage} onHideError={handleHideError} />
+        <AuthContext.Provider value={{ isAuth, updateAuth }}>
+          <AppShell errorMessage={errorMessage} />
+        </AuthContext.Provider>
       </BrowserRouter>
     </MuiThemeProvider>
   );
