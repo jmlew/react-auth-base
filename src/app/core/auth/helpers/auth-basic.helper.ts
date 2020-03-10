@@ -1,7 +1,6 @@
-import axios, { AxiosResponse } from 'axios';
+import { AxiosResponse } from 'axios';
 
-import { AuthService, AuthSignInParams } from '../models/auth.model';
-import { AuthApiEndpoint } from '../enums/auth-api.enum';
+import { AuthService } from '../models/auth.model';
 import {
   clearJwtToken,
   getBearerToken,
@@ -10,15 +9,14 @@ import {
   isTokenExpired,
   storeJwtToken,
 } from '../../../shared/utils';
+import { ApiHelper } from '../../api/helpers';
+import { AuthSignInParams } from '../../api/models/auth-api.model';
 
 export class BasicAuthHelper implements AuthService {
   async signin(params: AuthSignInParams, updateAuth: VoidFunction): Promise<number> {
     try {
       // Returns the user ID from the server.
-      const response: AxiosResponse<number> = await axios.post(
-        AuthApiEndpoint.Authenticate,
-        params
-      );
+      const response: AxiosResponse<number> = await ApiHelper.authenticate(params);
       // Store the bearer token from the reponse headers to web storage.
       this.storeBearerToken(response.headers, params.remember);
 

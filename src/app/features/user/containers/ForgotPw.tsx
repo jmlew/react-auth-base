@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { ForgotPwForm } from '../components';
-import { UserParams } from '../models/user.model';
+import { UserParams } from '../../../core/api/models/user-api.model';
 
 interface ForgotPwProps {}
 

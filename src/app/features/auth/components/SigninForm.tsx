@@ -3,11 +3,11 @@ import { useFormik } from 'formik';
 import { makeStyles, Button, Checkbox, FormControlLabel, Theme } from '@material-ui/core';
 
 import { uiThemeForm } from '../../../styles/theme/ui-theme';
-import { AuthSignInParams } from '../../../core/auth/models/auth.model';
 import { TextFieldInput } from '../../../shared/components/inputs';
 import { FormField } from '../../../shared/enums/form-fields.enum';
 import { getValidationSchema } from '../../../shared/helpers';
 import { PropStringMap } from '../../../shared/models/data-maps.model';
+import { AuthSignInParams } from '../../../core/api/models/auth-api.model';
 
 const useStyles = makeStyles((theme: Theme) => ({
   ...uiThemeForm(theme),

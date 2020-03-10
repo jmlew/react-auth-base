@@ -1,8 +1,4 @@
-export interface AuthSignInParams {
-  email: string;
-  password: string;
-  remember?: boolean;
-}
+import { AuthSignInParams } from '../../api/models/auth-api.model';
 
 export interface AuthState {
   isAuthenticated: boolean;

@@ -3,11 +3,11 @@ import { makeStyles, Button, Theme } from '@material-ui/core';
 import { useFormik } from 'formik';
 
 import { uiThemeForm } from '../../../styles/theme/ui-theme';
-import { UserParams } from '../models/user.model';
 import { FormField } from '../../../shared/enums/form-fields.enum';
 import { PropStringMap } from '../../../shared/models/data-maps.model';
 import { getValidationSchema } from '../../../shared/helpers';
 import { TextFieldInput } from '../../../shared/components/inputs';
+import { UserParams } from '../../../core/api/models/user-api.model';
 
 const useStyles = makeStyles((theme: Theme) => ({
   ...uiThemeForm(theme),

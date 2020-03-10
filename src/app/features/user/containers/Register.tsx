@@ -1,14 +1,17 @@
 import React from 'react';
+import { AxiosResponse } from 'axios';
 
 import { authRouteConfig } from '../../../shared/constants/routes';
 import { RegisterForm } from '../components';
-import { UserParams } from '../models/user.model';
+import { UserParams } from '../../../core/api/models/user-api.model';
+import { ApiHelper } from '../../../core/api/helpers';
 
 interface RegisterProps {}
 
 export function Register({}: RegisterProps) {
-  function handleFormSubmit(values: UserParams) {
-    console.log('Register form submitted: ', values);
+  async function handleFormSubmit(params: UserParams) {
+    const response: AxiosResponse<number> = await ApiHelper.registerUser(params);
+    console.log('response :', response);
   }
 
   return (

@@ -1,10 +1,10 @@
 import React from 'react';
 import { useHistory, useLocation } from 'react-router-dom';
 
-import { AuthSignInParams } from '../../../core/auth/models/auth.model';
 import { SigninForm } from '../components';
 import { authBasicHelper } from '../../../core/auth/helpers';
 import { useAuth } from '../../../core/auth/context';
+import { AuthSignInParams } from '../../../core/api/models/auth-api.model';
 
 interface SigninProps {}
 

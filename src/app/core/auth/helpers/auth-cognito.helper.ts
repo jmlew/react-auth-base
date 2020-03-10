@@ -1,4 +1,5 @@
-import { AuthService, AuthSignInParams } from '../models/auth.model';
+import { AuthService } from '../models/auth.model';
+import { AuthSignInParams } from '../../api/models/auth-api.model';
 
 // TODO: add AWS Cognito functionality.
 export class CognitoAuthHelper implements AuthService {
