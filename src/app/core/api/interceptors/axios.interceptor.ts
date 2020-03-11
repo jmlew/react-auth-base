@@ -53,9 +53,9 @@ function responseSuccessInterceptor(response: AxiosResponse) {
 }
 
 function responseErrorInterceptor(error: any) {
-  console.log('response error :', error);
   const status: number = error.status || error.response.status;
   if (status === 403 || status === 401) {
+    console.log('forbidden status :', status);
     // TODO: update auth state and signout.
   }
   return Promise.reject(error);

@@ -1,6 +1,6 @@
 import { createContext, useContext } from 'react';
 
-interface AuthContextValue {
+export interface AuthContextValue {
   isAuth: boolean;
   updateAuth: () => void;
 }

@@ -1,35 +1,52 @@
-# React AWS Auth Boilerplate
+# React JWT Auth Boilerplate
 
-A Boilerplate for React apps providing authorisation functionality through AWS Cognito and styled with Material UI.
+A Boilerplate for React apps providing basic JTW authorisation functionality and styled with Material UI.
 
 ## Architecture
 
 The app's architecture aligns with the semantics and directory structure as defined in [this guide](http://bit.ly/scaleable-apps).
 
-### `yarn start`
+## Serve
 
-Runs the app in the development mode.<br />
+Runs the app in the development mode with the mock api.
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-The page will reload if you make edits.<br />
+```bash
+# run with mock api
+npm start
+# run without mock api
+npm run serve
+# run mock api only
+npm run serve:mock
+```
+
+The page will reload if you make edits.
 You will also see any lint errors in the console.
 
-### `yarn test`
+## Test
 
-Launches the test runner in the interactive watch mode.<br />
+```
+npm run test
+```
+
+Launches the test runner in the interactive watch mode.
 See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `yarn build`
+## Build
 
-Builds the app for production to the `build` folder.<br />
+```
+npm run build
+```
+
+Builds the app for production to the `build` folder.
 It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.<br />
+The build is minified and the filenames include the hashes.
 Your app is ready to be deployed!
 
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### Docker
+## Docker
 
 Alternatively, the application can be ran via a Docker container. We build the image as dev and prod variants.
 
@@ -38,7 +55,7 @@ Alternatively, the application can be ran via a Docker container. We build the i
 
 Install [Docker for Desktop](https://hub.docker.com/?overlay=onboarding)
 
-#### Run as Devlopment
+### Run as Devlopment
 
 Build the Docker image:
 
@@ -59,7 +76,7 @@ docker run -v ${PWD}:/app -v /app/node_modules -p 3001:3000 --rm excelian-bank:d
 # open http://localhost:3001
 ```
 
-#### Run as Production
+### Run as Production
 
 Build the Docker image:
 

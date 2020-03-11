@@ -24,7 +24,7 @@ export function Signin({}: SigninProps) {
         history.replace(prevPath || '/');
       },
       () => {
-        console.log('sign in error');
+        // Sign in error.
       }
     );
   }
